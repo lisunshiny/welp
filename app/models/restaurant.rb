@@ -8,4 +8,9 @@ class Restaurant < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
 
+  def avg_rating
+    reviews = self.reviews
+
+    reviews.empty? ? nil : reviews.sum(:rating) / reviews.length 
+  end
 end

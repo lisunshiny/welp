@@ -3,7 +3,9 @@
 <ul>
  <% @restaurants.each do |restaurant| %>
   <li>
-    <%= link_to restaurant.name, restaurant %>
+    <%= link_to restaurant.name, restaurant %>,
+    Rating: <%= restaurant.avg_rating %>
+    (<%= restaurant.reviews.count %> ratings)
   </li>
  <% end %>
 </ul>
