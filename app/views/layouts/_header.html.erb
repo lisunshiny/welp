@@ -3,7 +3,7 @@
   <nav class="header-nav clearfix">
 
     <h1 class="header-logo">
-      <a href="#">Welp</a>
+      <a href="<%= root_url %>">Welp</a>
     </h1>
 
     <ul class="header-list clearfix">
@@ -14,9 +14,12 @@
             <%= current_user.username %>
           </a>
         </li>
+        <li>
+          <%= link_to "Log out", session_url, { method: :delete } %>
+        </li>
       <% else %>
-        <li><a href="<%= new_session_url %>">Log In</a></li>
-        <li><a href="<%= new_user_url %>">Sign Up</a></li>
+        <li><a href="<%= new_session_url %>">Log in</a></li>
+        <li><a href="<%= new_user_url %>">Sign up</a></li>
       <% end %>
 
     </ul>

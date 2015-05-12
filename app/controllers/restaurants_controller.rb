@@ -8,8 +8,9 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to restaurant_url(restaurant)
+      redirect_to root_url
     else
+      fail
       flash.now[:errors] = @restaurant.errors.full_messages
       render :new
     end
@@ -51,8 +52,12 @@ class RestaurantsController < ApplicationController
 
   private
     def restaurant_params
-      params
+      restaurant_params = params
         .require(:restaurant)
         .permit(:name, :tag, :address, :city, :state, :zip, :phone)
+      restaurant_params[:tag] = restaurant_params[:tag].to_i
+
+      return restaurant_params
     end
+
 end
