@@ -6,6 +6,7 @@
     <%= link_to restaurant.name, restaurant %>,
     Rating: <%= restaurant.avg_rating %>
     (<%= restaurant.reviews.count %> ratings)
+    Type: <%= restaurant.tag %>
   </li>
  <% end %>
 </ul>
