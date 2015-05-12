@@ -31,23 +31,28 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = current_user.restaurants.find(params[:id])
 
-
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurant_url(@restaurant)
+    else
+      flash.now[:errors] = @restaurant.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = current_user.restaurants.find(params[:id])
 
+    if @restaurant.destroy(restaurant_params)
+      redirect_to restaurants_url
+    end
   end
 
   private
-
     def restaurant_params
       params
         .require(:restaurant)
         .permit(:name, :tag, :address, :city, :state, :zip, :phone)
     end
-
-
 end
