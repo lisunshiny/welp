@@ -69,6 +69,10 @@ input[type="submit"] {
 
 
 /* New defaults */
+body {
+  font-family: "open sans";
+  background: #F5F5F1;
+}
 h2 {
   font-size: 36px;
   display: block;
