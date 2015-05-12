@@ -66,3 +66,49 @@ input[type="submit"] {
   display: block;
   clear: both;
 }
+
+
+/* New defaults */
+h2 {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+
+a {
+  color: #3B67AC
+}
+
+p {
+  display: block;
+  margin: 10px 0px;
+}
+
+ul {
+  display: block;
+  margin: 10px 0px;
+}
+
+button {
+  border: 1px solid #CCCCC8;
+  padding: 5px;
+}
+
+input {
+  border: 1px solid #CCCCC8;
+  padding: 5px;
+}
