@@ -1,1 +1,40 @@
 <h2><%= @restaurant.name %></h2>
+
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.city %>, <%= @restaurant.state %>, <%= @restaurant.zip %></p>
+<p><%= @restaurant.phone %></p>
+
+<h3> Reviews </h3>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      rating: <% review.rating %>
+      <%= review.body %>
+    </li>
+  <% end %>
+</ul>
+
+<h4>New review</h4>
+
+<form action="<%= reviews_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="review_rating">Rating</label>
+  <select id="restaurant_tag" name="restaurant[tag]">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <input
+    type="text"
+    name="review[body]"
+    value="<%= @review.body %>">
+
+  <button>submit!</button>
+
+</form>

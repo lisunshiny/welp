@@ -6,5 +6,6 @@ class Restaurant < ActiveRecord::Base
   validates_inclusion_of :zip, { :in => 10000..99999 }
 
   belongs_to :user
+  has_many :reviews
 
 end
