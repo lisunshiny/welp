@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :reviews
+  has_many :restaurants
+  
+
   def self.find_by_credentials(params)
     user = User.find_by(username: params[:username])
 
