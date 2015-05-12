@@ -8,12 +8,13 @@ class SessionsController < ApplicationController
       redirect_to users_url
     else
       flash.now[:errors] = ["Incorrect username and/or password"]
-      @params = user_params
+      @user = User.new(user_params)
       render :new
     end
   end
 
   def new
+    @user = User.new
     render :new
   end
 

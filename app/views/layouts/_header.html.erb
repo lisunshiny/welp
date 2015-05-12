@@ -1,0 +1,28 @@
+<header class="header">
+
+  <nav class="header-nav clearfix">
+
+    <h1 class="header-logo">
+      <a href="#">Welp</a>
+    </h1>
+
+    <ul class="header-list clearfix">
+
+      <% if logged_in? %>
+        <li>
+          <a href="<%= user_url(current_user) %>">
+            <%= current_user.username %>
+          </a>
+        </li>
+      <% else %>
+        <li><a href="<%= new_session_url %>">Log In</a></li>
+        <li><a href="<%= new_user_url %>">Sign Up</a></li>
+      <% end %>
+
+    </ul>
+
+  </nav>
+
+
+
+</header>
