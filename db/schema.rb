@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150512160708) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name",       null: false
-    t.integer  "label",      null: false
+    t.integer  "tag",        null: false
     t.string   "address",    null: false
     t.string   "city",       null: false
     t.string   "state",      null: false
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150512160708) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "restaurants", ["label"], name: "index_restaurants_on_label", using: :btree
   add_index "restaurants", ["name"], name: "index_restaurants_on_name", using: :btree
+  add_index "restaurants", ["tag"], name: "index_restaurants_on_tag", using: :btree
   add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

@@ -2,7 +2,7 @@ class CreateRestaurants < ActiveRecord::Migration
   def change
     create_table :restaurants do |t|
       t.string :name, null: false
-      t.integer :label, null: false
+      t.integer :tag, null: false
 
       t.string :address, null: false
       t.string :city, null: false
@@ -18,7 +18,7 @@ class CreateRestaurants < ActiveRecord::Migration
 
     add_index :restaurants, :name
     add_index :restaurants, :user_id
-    add_index :restaurants, :label
+    add_index :restaurants, :tag
 
 
   end
