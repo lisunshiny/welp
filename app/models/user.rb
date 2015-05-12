@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -10,11 +11,11 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(params)
+    user = User.find_by(username: params[:username])
 
     return nil if user.nil?
-    user.is_password?(password) ? user : nil
+    user.is_password?(params[:password]) ? user : nil
   end
 
   def is_password?(password)

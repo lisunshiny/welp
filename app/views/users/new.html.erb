@@ -1,0 +1,36 @@
+<h2>Sign up</h2>
+
+<form action="<%= users_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="_method" value="">
+
+  <label for="user_username">Username</label>
+  <input
+    type="text"
+    name="user[username]"
+    value="<%= @user.username %>"
+    id="user_username">
+
+  <label for="user_email">Email</label>
+  <input
+    type="text"
+    name="user[email]"
+    value="<%= @user.email %>"
+    id="user_email">
+
+  <label for="user_password">Password</label>
+  <input
+    type="password"
+    name="user[password]"
+    id="user_password">
+
+    <!-- doesnt do anything now... for later -->
+  <label for="user_password_confirmation">Confirm Password</label>
+  <input
+    type="password"
+    name="user[password_confirmation]"
+    id="user_password_confirmation">
+
+  <button>Submit!</button>
+</form>
