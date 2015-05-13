@@ -2,7 +2,7 @@
   <ul>
    <% restaurants.each(function(restaurant) { %>
     <li>
-      <a href="#/restaurants/<%= restaurant.get("id") %>">
+      <a href="#restaurants/<%= restaurant.get("id") %>">
         <%= restaurant.get("name") %>
       </a>
       <%= restaurant.get("avg_rating") %>
