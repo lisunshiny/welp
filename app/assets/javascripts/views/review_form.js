@@ -29,6 +29,10 @@ Welp.Views.ReviewForm = Backbone.View.extend({
       success: function() {
         this.collection.add(this.model);
         Backbone.history.loadUrl();
+      },
+
+      error: function(model, response) {
+        console.log(response);
       }
     });
   }

@@ -8,6 +8,7 @@ window.Welp = {
       $rootEl: $(".main")
     });
     Backbone.history.start();
+    console.log("yer in backbone")
     // stuff goes here
   }
 };
