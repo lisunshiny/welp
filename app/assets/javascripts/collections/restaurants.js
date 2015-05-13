@@ -12,5 +12,6 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
     this.add(model, { merge: true });
     model.fetch();
 
+    return model;
   }
 })

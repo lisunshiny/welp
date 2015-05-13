@@ -7,7 +7,7 @@ Welp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "restaurantsIndex",
-    "#/restaurants/:id": "restaurantShow"
+    "restaurants/:id": "restaurantShow"
   },
 
   restaurantsIndex: function() {
@@ -18,7 +18,8 @@ Welp.Routers.Router = Backbone.Router.extend({
   },
 
   restaurantShow: function(id) {
-    var view = new Welp.Views.RestaurantView({
+    console.log("hi");
+    var view = new Welp.Views.RestaurantShow({
       model: this.collection.getOrFetch(id)
     })
 
