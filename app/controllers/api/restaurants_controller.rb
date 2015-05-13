@@ -1,4 +1,4 @@
-class Api::RestaurantsController < ApiController
+class Api::RestaurantsController < Api::ApiController
   def create
     @restaurant = current_user.restaurants.new(restaurant_params)
 
@@ -17,7 +17,7 @@ class Api::RestaurantsController < ApiController
   end
 
   def index
-    @restaurant = Restaurant.all
+    @restaurants = Restaurant.all
 
     #custom json for this
     render :index
