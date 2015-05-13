@@ -1,0 +1,10 @@
+<section class="review-sidebar">
+  <a href="#users/<%= review.get("user_id") %>"><%= review.escape("username") %></a>
+</section>
+
+<section class="review-content">
+  <figure class="review-rating"><%= review.escape("rating") %></figure>
+  <p class="review-body">
+    <%= review.escape("body") %>
+  </p>
+</section>

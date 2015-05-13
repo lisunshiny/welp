@@ -2,8 +2,10 @@ Welp.Models.Restaurant = Backbone.Model.extend({
   urlRoot: "api/restaurants",
 
   parse: function(json) {
+    debugger;
     if (json.reviews) {
       this.reviews().set(json.reviews, { parse: true });
+      debugger;
       delete json.reviews;
     }
 
