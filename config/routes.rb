@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :reviews, only: [:create, :destroy, :edit]
 
+  namespace :api, defaults: { format: :json } do
+    resources :boards
+    resources :reviews, only: [:create, :edit, :destroy]
+
+  end
+
 end
