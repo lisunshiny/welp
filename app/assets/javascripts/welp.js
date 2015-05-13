@@ -4,6 +4,10 @@ window.Welp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    new Welp.Routers.Router({
+      $rootEl: $(".main")
+    });
+    Backbone.history.start();
     // stuff goes here
   }
 };

@@ -1,3 +1,14 @@
 <h2> Restaurants </h1>
+  <ul>
+   <% restaurants.each(function(restaurant) { %>
+    <li>
+      <a href="#/restaurants/<%= restaurant.get("id") %>">
+        <%= restaurant.get("name") %>
+      </a>
+      <%= restaurant.get("avg_rating") %>
+      <%= restaurant.get("num_reviews") %>
+      <%= restaurant.get("tag") %>
 
-<%= restaurants.find(1).escape("name") %>
+    </li>
+   <% }) %>
+  </ul>

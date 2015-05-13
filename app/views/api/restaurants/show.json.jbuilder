@@ -1,3 +1,4 @@
+json.id @restaurant.id
 json.name @restaurant.name
 json.tag @restaurant.tag
 
@@ -11,6 +12,7 @@ json.avg_rating @restaurant.avg_rating
 json.num_reviews @restaurant.num_reviews
 
 json.reviews @restaurant.reviews do |review|
+  json.id review.id
   json.rating review.rating
   json.body review.body
   json.user_id review.user_id
