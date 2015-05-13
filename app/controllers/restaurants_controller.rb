@@ -10,7 +10,6 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to root_url
     else
-      fail
       flash.now[:errors] = @restaurant.errors.full_messages
       render :new
     end
