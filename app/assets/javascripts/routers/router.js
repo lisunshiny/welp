@@ -7,6 +7,7 @@ Welp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "restaurantsIndex",
+    "restaurants/new": "restaurantNew",
     "restaurants/:id": "restaurantShow"
   },
 
@@ -17,8 +18,16 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.swapView(view)
   },
 
+  restaurantNew: function() {
+    var view = new Welp.Views.RestaurantForm({
+      model: new Welp.Models.Restaurant(),
+      collection: this.collection
+    })
+
+    this.swapView(view)
+  },
+
   restaurantShow: function(id) {
-    console.log("hi");
     var view = new Welp.Views.RestaurantShow({
       model: this.collection.getOrFetch(id)
     })

@@ -1,7 +1,11 @@
-Welp.Views.RestaurantsIndex = Backbone.View.extend({
+Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
 
+    this.addSubview(".new-restaurant-form", new Welp.Views.RestaurantForm({
+      model: new Welp.Models.Restaurant(),
+      collection: this.collection,
+    }));
   },
 
 

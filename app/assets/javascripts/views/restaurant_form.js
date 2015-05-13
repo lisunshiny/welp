@@ -8,7 +8,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
   },
 
   initialize: function (opts) {
-    // this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.model, "sync change", this.render);
   },
 
   template: JST["restaurants/form"],
@@ -28,7 +28,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
-        Backbone.history.loadUrl();
+        Backbone.history.navigate("", { trigger: true });
       },
 
       error: function(model, response) {
