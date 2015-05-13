@@ -1,6 +1,6 @@
 class Api::ReviewsController < Api::ApplicationController
   def create
-  
+
   end
 
   def edit
@@ -10,9 +10,12 @@ class Api::ReviewsController < Api::ApplicationController
   end
 
   private
+    def review_params
+      params.require(:review).permit(:rating, :body. :restaurant_id)
+    end
 
     def current_restaurant
-      #something here
+      Restaurant.find(review_params[:restaurant_id])
     end
 
 end
