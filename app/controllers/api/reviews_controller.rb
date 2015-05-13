@@ -1,6 +1,12 @@
-class Api::ReviewsController < Api::ApplicationController
+class Api::ReviewsController < Api::ApiController
   def create
+    @review = current_user.reviews.new(review_params)
 
+    if @review.save
+      render json: @review
+    else
+      render json: @review.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -11,7 +17,7 @@ class Api::ReviewsController < Api::ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:rating, :body. :restaurant_id)
+      params.require(:review).permit(:rating, :body, :restaurant_id)
     end
 
     def current_restaurant

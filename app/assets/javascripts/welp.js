@@ -12,7 +12,3 @@ window.Welp = {
     // stuff goes here
   }
 };
-
-$(document).ready(function(){
-  Welp.initialize();
-});

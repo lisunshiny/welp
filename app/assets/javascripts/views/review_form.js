@@ -24,14 +24,16 @@ Welp.Views.ReviewForm = Backbone.View.extend({
   submit: function() {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
+    var that = this;
 
     this.model.save(attrs, {
       success: function() {
-        this.collection.add(this.model);
+        that.collection.add(that.model);
         Backbone.history.loadUrl();
       },
 
       error: function(model, response) {
+        debugger;
         console.log(response);
       }
     });
