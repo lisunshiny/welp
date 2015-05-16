@@ -26,7 +26,7 @@ development:
   adapter: postgresql
   database: welp_development
   host: localhost
-  username: appacademy
+  # username: appacademy
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
