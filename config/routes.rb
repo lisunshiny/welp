@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :restaurants
     resources :reviews, only: [:create, :edit, :destroy]
-
+    resources :users, only: [:show, :upate]
   end
 
 end
