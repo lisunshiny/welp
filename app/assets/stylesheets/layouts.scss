@@ -4,19 +4,19 @@
   display: block;
   background: red;
   color: white;
+  position: relative;
 }
 
 .header-nav {
   width: 1000px;
   margin: auto;
-
 }
 
 .header-logo a {
+  display: block;
   float: left;
   padding: 30px;
   color: white;
-
 }
 
 .header-list {
@@ -35,6 +35,12 @@
   display: inline-block;
   color: white;
 }
+
+.search-form {
+  float: left;
+  padding: 30px;
+}
+
 
 // main
 
