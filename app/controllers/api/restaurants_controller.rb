@@ -30,6 +30,24 @@ class Api::RestaurantsController < Api::ApiController
     render :show
   end
 
+  def search
+    if params[:query].present?
+      restaurants_by_name = Restaurant
+        .where("name ~ :query", { query: params[:query] })
+      restaurants_by_tag = Restaurant
+        .where(tag: queried_tags(params[:query]))
+
+      @restaurants = (restaurants_by_name + restaurants_by_tag).uniq
+
+
+    else
+      @restaurants = Restaurant.none
+    end
+
+    render :index
+
+  end
+
   private
 
     def restaurant_params
@@ -40,6 +58,12 @@ class Api::RestaurantsController < Api::ApiController
       restaurant_params[:tag] = restaurant_params[:tag].to_i
 
       return restaurant_params
+    end
+
+    def queried_tags(query)
+      tags = Restaurant.tags
+
+      tags.select {|tag| query.in?(tag)}.keys
     end
 
 
