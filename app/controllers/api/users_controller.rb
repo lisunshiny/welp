@@ -1,4 +1,4 @@
-class Api::UsersController < Api::ApplicationController
+class Api::UsersController < Api::ApiController
   def show
     @user = User.find(params[:id])
 
@@ -18,7 +18,7 @@ class Api::UsersController < Api::ApplicationController
 
   def current
     @user = current_user
-    
+
     if @user
       render :show
     else
