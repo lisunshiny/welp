@@ -1,0 +1,27 @@
+<h1 class="header-logo">
+  <a href="#">Welp</a>
+</h1>
+
+<ul class="header-list clearfix">
+
+  <% if (user.id) { %>
+    <li>
+      <a class="logged-in-nav" href="#/users/<%= user.id %>">
+        <%= user.escape("username") %>
+      </a>
+    </li>
+    <li>
+      <a class="logged-in-nav" href="/session" data-method="delete">
+        Log out
+      </a>
+    </li>
+  <% } else { %>
+    <li>
+      <a class="logged-out-nav" href="/session/new">Log in</a>
+    </li>
+    <li>
+      <a class="logged-out-nav" href="/users/new">Sign up</a>
+    </li>
+  <% } %>
+
+</ul>

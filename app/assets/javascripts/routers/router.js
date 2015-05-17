@@ -1,9 +1,16 @@
 Welp.Routers.Router = Backbone.Router.extend({
   initialize: function(opts) {
     this.$rootEl = opts.$rootEl;
+    this.$header = opts.$header;
+
     this.collection = new Welp.Collections.Restaurants();
     this.collection.fetch();
+
     this.users = new Welp.Collections.Users();
+
+    this.currentUser = new Welp.Models.CurrentUser();
+    this.currentUser.fetch();
+    this.renderHeader();
   },
 
   routes: {
@@ -11,6 +18,14 @@ Welp.Routers.Router = Backbone.Router.extend({
     "restaurants/new": "restaurantNew",
     "restaurants/:id": "restaurantShow",
     "users/:id": "userShow"
+  },
+
+  renderHeader: function() {
+    var view = new Welp.Views.Header({
+      model: this.currentUser
+    });
+
+    this.$header.html(view.render().$el);
   },
 
   restaurantsIndex: function() {

@@ -16,6 +16,16 @@ class Api::UsersController < Api::ApplicationController
 
   end
 
+  def current
+    @user = current_user
+    
+    if @user
+      render :show
+    else
+      render json: {}
+    end
+  end
+
   private
 
     def user_params

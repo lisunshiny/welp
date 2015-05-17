@@ -25,6 +25,10 @@ gem 'bcrypt-ruby', require: "bcrypt"
 gem 'rails_12factor'
 gem 'backbone-on-rails'
 
+gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

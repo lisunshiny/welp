@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :restaurants
     resources :reviews, only: [:create, :edit, :destroy]
+    get "/users/current", to: "users#current", as: "current_user"
     resources :users, only: [:show, :upate]
   end
 

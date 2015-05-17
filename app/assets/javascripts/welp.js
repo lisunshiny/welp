@@ -4,8 +4,10 @@ window.Welp = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     new Welp.Routers.Router({
-      $rootEl: $(".main")
+      $rootEl: $(".main"),
+      $header: $(".header")
     });
     Backbone.history.start();
     console.log("yer in backbone")
