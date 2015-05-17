@@ -15,9 +15,10 @@ Welp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "restaurantsIndex",
+    "search?query=:query&loc=:loc": "restaurantSearch",
     "restaurants/new": "restaurantNew",
     "restaurants/:id": "restaurantShow",
-    "users/:id": "userShow"
+    "users/:id": "userShow",
   },
 
   renderHeader: function() {
@@ -48,6 +49,20 @@ Welp.Routers.Router = Backbone.Router.extend({
     var view = new Welp.Views.RestaurantShow({
       model: this.collection.getOrFetch(id)
     })
+
+    this.swapView(view)
+  },
+
+  restaurantSearch: function(query, loc) {
+    console.log(loc)
+    var results = new Welp.Collections.SearchResults()
+    var params = { query: query, loc: loc }
+
+    results.fetch({ data: params })
+
+    var view = new Welp.Views.SearchIndex({
+      collection: results
+    });
 
     this.swapView(view)
   },

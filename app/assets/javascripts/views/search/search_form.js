@@ -22,12 +22,8 @@ Welp.Views.SearchForm = Backbone.View.extend({
   submit: function() {
     event.preventDefault();
     var params = this.$el.serializeJSON();
-    var that = this;
-    this.collection.fetch({
-      data: params,
-      success: function() {
-        console.log(that.collection)
-      }
-    })
+
+    Backbone.history.navigate("search?query=" + params["query"] + "&loc=" + params["loc"], { trigger: true })
+
   }
 })

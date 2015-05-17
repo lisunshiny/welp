@@ -52,7 +52,6 @@ class Api::RestaurantsController < Api::ApiController
 
     def restaurant_params
       restaurant_params = params
-        .require(:restaurant)
         .permit(:name, :tag, :address, :city, :state, :zip, :phone)
 
       restaurant_params[:tag] = restaurant_params[:tag].to_i
@@ -63,7 +62,7 @@ class Api::RestaurantsController < Api::ApiController
     def queried_tags(query)
       tags = Restaurant.tags
 
-      tags.select {|tag| query.in?(tag)}.keys
+      tags.select {|tag| query.in?(tag)}.values
     end
 
 
