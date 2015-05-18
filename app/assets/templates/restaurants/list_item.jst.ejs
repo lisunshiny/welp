@@ -1,0 +1,15 @@
+<% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
+
+<img src="<%= restaurant.escape("pic") %>" alt="" />
+<a href="#restaurants/<%= restaurant.id %>">
+  <%= restaurant.get("name") %>
+</a>
+<div class="rating" data-rate="<%= avgRating %>">
+  <i class="star-1">★</i>
+  <i class="star-2">★</i>
+  <i class="star-3">★</i>
+  <i class="star-4">★</i>
+  <i class="star-5">★</i>
+</div>
+(<%= restaurant.get("num_reviews") %> reviews)
+<%= restaurant.get("tag") %>
