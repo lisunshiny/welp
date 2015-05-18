@@ -2,7 +2,7 @@
 
 .header {
   display: block;
-  background: red;
+  background: #B31300;
   color: white;
   position: relative;
 }
@@ -39,6 +39,41 @@
 .search-form {
   float: left;
   padding: 30px;
+  color: #000;
+}
+
+.search-form input {
+  border: none;
+}
+
+.search-form-item {
+  display: inline;
+  background: #F5F5F1;
+  margin-right: 10px;
+  padding: 5px;
+  box-shadow: 0 0 3px #000;
+  border-radius: 3px;
+}
+
+.search-form-item > label {
+  font-weight: bold;
+}
+
+.submit-search {
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  background: #820600;
+  border-radius: 5px;
+  padding: 0 10px;
+  box-shadow: 0 0 3px #000;
+
+}
+
+.magnifying-glass {
+  display: block;
+  transform: rotate(45deg);
 }
 
 

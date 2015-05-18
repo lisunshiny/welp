@@ -1,6 +1,6 @@
 Welp.Views.RestaurantList = Backbone.View.extend({
   tagName: "li",
-  className: "restaurant-list-item",
+  className: "restaurant-list-item clearfix",
 
   initialize: function () {
     this.listenTo(this.model, "sync change", this.render)

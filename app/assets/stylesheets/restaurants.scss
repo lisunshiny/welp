@@ -1,3 +1,45 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.restaurant-list {
+  width: 500px;
+}
+
+.restaurant-list-item {
+  border-bottom: 1px solid #EBBF6D;
+  padding: 20px 0;
+
+}
+
+.restaurant-list-avatar {
+  width: 100px;
+  height: 100px;
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+  float: left;
+}
+
+.restaurant-list-avatar > img {
+  width: auto;
+  height: 100%;
+}
+
+.restaurant-list-content {
+  float: left;
+  margin-left: 20px;
+}
+
+.rating {
+  float: left;
+  margin-right: 10px;
+}
+
+.num-reviews {
+  float: left;
+}
+
+.restaurant-list-tag {
+  display: block;
+  margin-top: 10px;
+}

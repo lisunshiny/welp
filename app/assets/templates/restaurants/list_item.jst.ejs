@@ -1,15 +1,34 @@
 <% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
 
-<img src="<%= restaurant.escape("pic") %>" alt="" />
-<a href="#restaurants/<%= restaurant.id %>">
-  <%= restaurant.get("name") %>
-</a>
-<div class="rating" data-rate="<%= avgRating %>">
-  <i class="star-1">★</i>
-  <i class="star-2">★</i>
-  <i class="star-3">★</i>
-  <i class="star-4">★</i>
-  <i class="star-5">★</i>
-</div>
-(<%= restaurant.get("num_reviews") %> reviews)
-<%= restaurant.get("tag") %>
+<figure class="restaurant-list-avatar">
+  <img src="<%= restaurant.escape("pic") %>" alt="" >
+</figure>
+
+<section class="restaurant-list-content">
+  <h4 class="restaurant-list-title">
+    <a href="#restaurants/<%= restaurant.id %>">
+      <%= restaurant.get("name") %>
+    </a>
+  </h3>
+
+  <section class="restaurant-list-rating clearfix">
+    <div class="rating" data-rate="<%= avgRating %>">
+      <i class="star-1">★</i>
+      <i class="star-2">★</i>
+      <i class="star-3">★</i>
+      <i class="star-4">★</i>
+      <i class="star-5">★</i>
+    </div>
+    <span class="num-reviews">
+      (<%= restaurant.get("num_reviews") %> reviews)
+    </span>
+
+  </section>
+
+  <strong class="restaurant-list-tag">
+    <a href="#">
+      <%= restaurant.get("tag") %>
+    </a>
+  </strong>
+
+</section>
