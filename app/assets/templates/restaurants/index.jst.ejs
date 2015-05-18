@@ -4,7 +4,8 @@
    <% restaurants.each(function(restaurant) { %>
     <li>
       <% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
-      <a href="#restaurants/<%= restaurant.get("id") %>">
+      <img src="<%= restaurant.escape("pic") %>" alt="" />
+      <a href="#restaurants/<%= restaurant.id %>">
         <%= restaurant.get("name") %>
       </a>
       <div class="rating" data-rate="<%= avgRating %>">

@@ -1,4 +1,6 @@
 class Api::RestaurantsController < Api::ApiController
+  wrap_parameters(false)
+
   def create
     @restaurant = current_user.restaurants.new(restaurant_params)
 
@@ -52,7 +54,7 @@ class Api::RestaurantsController < Api::ApiController
 
     def restaurant_params
       restaurant_params = params.require(:restaurant)
-        .permit(:name, :tag, :address, :city, :state, :zip, :phone)
+        .permit(:name, :tag, :address, :city, :state, :zip, :phone, :pic)
 
       restaurant_params[:tag] = restaurant_params[:tag].to_i
 

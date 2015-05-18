@@ -4,7 +4,8 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
   className: "restaurant-form",
 
   events: {
-    "click .submit-restaurant": "submit"
+    "click .submit-restaurant": "submit",
+    "change #input-restaurant-image": "fileInputChange"
   },
 
   initialize: function (opts) {
@@ -22,7 +23,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
 
   submit: function() {
     event.preventDefault();
-    var attrs = this.$el.serializeJSON();
+    var attrs = this.$el.serializeJSON().restaurant;
     var that = this;
 
     this.model.save(attrs, {
@@ -36,5 +37,28 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
         console.log(response);
       }
     });
+  },
+
+  fileInputChange: function(event) {
+    var that = this;
+    var pic = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+      that._updatePreview(reader.result);
+      that.model._image = reader.result;
+    };
+
+    if (pic) {
+      reader.readAsDataURL(pic)
+    }
+    else {
+      that._updatePreview("");
+      delete that.model._image;
+    }
+  },
+
+  _updatePreview: function(src) {
+    this.$el.find(".preview-restaurant-pic").attr("src", src);
   }
 })

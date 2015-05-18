@@ -17,6 +17,17 @@ Welp.Models.Restaurant = Backbone.Model.extend({
       });
     }
     return this._reviews;
+  },
+
+  toJSON: function(){
+    // We want proper namespacing of our attributes in Rails.
+    var json = {restaurant: _.clone(this.attributes)};
+
+    if (this._image) {
+      json.restaurant.pic = this._image;
+    }
+
+    return json;
   }
 
 });
