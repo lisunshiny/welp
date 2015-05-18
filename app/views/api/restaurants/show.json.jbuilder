@@ -1,6 +1,8 @@
 json.id @restaurant.id
 json.name @restaurant.name
 json.tag @restaurant.tag
+json.pic asset_path(@restaurant.pic.url)
+
 
 json.address1 @restaurant.address
 json.address2 "#{@restaurant.city}, #{@restaurant.state} #{@restaurant.zip}"

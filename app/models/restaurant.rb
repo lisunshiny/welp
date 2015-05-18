@@ -5,6 +5,13 @@ class Restaurant < ActiveRecord::Base
 
   validates_inclusion_of :zip, { :in => 10000..99999 }
 
+  has_attached_file :pic,
+    default_url: ':attachment/missing.jpg'
+
+  validates_attachment :pic,
+    content_type: { content_type: /\Aimage\/.*\Z/ },
+    size: { less_than: 1.megabytes }
+
   belongs_to :user
   has_many :reviews
 
