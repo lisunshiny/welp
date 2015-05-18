@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "50x50>" }
+  has_attached_file :avatar,
+    styles: { medium: "300x300>", thumb: "50x50>" },
+    default_style: :thumb,
+    default_url: '/images/:attachment/missing_:style.jpg'
+
   validates_attachment :avatar,
     content_type: { content_type: /\Aimage\/.*\Z/ },
     size: { less_than: 1.megabytes }
