@@ -1,5 +1,31 @@
-<h2><%= restaurant.escape("name") %></h2>
+<% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
 
+<header class="restaurant-show-header">
+
+  <h2><%= restaurant.escape("name") %></h2>
+
+  <section class="restaurant-show-rating clearfix">
+    <div class="rating show-rating" data-rate="<%= avgRating %>">
+      <i class="star-1">★</i>
+      <i class="star-2">★</i>
+      <i class="star-3">★</i>
+      <i class="star-4">★</i>
+      <i class="star-5">★</i>
+    </div>
+    
+    <span class="num-reviews-show">
+      <%= restaurant.get("num_reviews") %> reviews
+    </span>
+
+    <strong class="restaurant-list-tag">
+      <a href="#">
+        <%= restaurant.get("tag") %>
+      </a>
+    </strong>
+
+  </section>
+
+</header>
 <p>
   <%= restaurant.escape("address1") %>
   <br>
