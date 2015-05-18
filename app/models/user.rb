@@ -7,15 +7,15 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  # validates_attachment :avatar, 
-  #   content_type: { content_type: /\Aimage\/.*\Z/ },
-  #   size: { less_than: 1.megabytes }
+
 
 
   attr_reader :password
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "50x50>" }
-
+  validates_attachment :avatar,
+    content_type: { content_type: /\Aimage\/.*\Z/ },
+    size: { less_than: 1.megabytes }
 
 
   after_initialize :ensure_session_token

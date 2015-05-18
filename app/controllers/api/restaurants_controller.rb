@@ -51,7 +51,7 @@ class Api::RestaurantsController < Api::ApiController
   private
 
     def restaurant_params
-      restaurant_params = params
+      restaurant_params = params.require(:restaurant)
         .permit(:name, :tag, :address, :city, :state, :zip, :phone)
 
       restaurant_params[:tag] = restaurant_params[:tag].to_i
