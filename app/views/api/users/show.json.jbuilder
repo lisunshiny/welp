@@ -1,7 +1,7 @@
 json.id @user.id
 json.username @user.username
 json.avatar asset_path(@user.avatar.url)
-json.join_date @user.created_at
+json.join_date @user.created_at.strftime("%F")
 
 json.reviews @user.reviews do |review|
   json.id review.id
