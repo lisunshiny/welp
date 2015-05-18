@@ -1,16 +1,24 @@
+
 <h2> Restaurants </h1>
   <ul>
    <% restaurants.each(function(restaurant) { %>
     <li>
+      <% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
       <a href="#restaurants/<%= restaurant.get("id") %>">
         <%= restaurant.get("name") %>
       </a>
-      <%= restaurant.get("avg_rating") %>
-      <%= restaurant.get("num_reviews") %>
+      <div class="rating" data-rate="<%= avgRating %>">
+        <i class="star-1">★</i>
+        <i class="star-2">★</i>
+        <i class="star-3">★</i>
+        <i class="star-4">★</i>
+        <i class="star-5">★</i>
+      </div>
+      (<%= restaurant.get("num_reviews") %> reviews)
       <%= restaurant.get("tag") %>
 
     </li>
    <% }) %>
   </ul>
 
-<a href="#restaurants/new">Make a new restaurant</a>  
+<a href="#restaurants/new">Make a new restaurant</a>
