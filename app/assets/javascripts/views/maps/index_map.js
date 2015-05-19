@@ -14,7 +14,7 @@ Welp.Views.IndexMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
-  
+    return this._map;
   },
 
   render: function () {

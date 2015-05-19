@@ -17,7 +17,7 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
 
   //todo: make this more efficient.
   markers: function() {
-    this._markers = [];
+    this._markers = _([]);
 
     var that = this
 
@@ -28,6 +28,11 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
     });
 
     return this._markers
-  }
+  },
 
+  putMarkers: function(map) {
+    this.markers().each(function(marker) {
+      marker.setMap(map);
+    });
+  }
 })
