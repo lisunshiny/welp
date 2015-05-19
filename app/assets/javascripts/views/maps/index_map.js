@@ -4,6 +4,10 @@ Welp.Views.IndexMap = Backbone.View.extend({
     class: "index-map-canvas"
   },
 
+  // initialize: function() {
+  //   this.listenTo(this.collection, )
+  // },
+
   initMap: function () {
     // Call this method `render` if you like; I've changed the name so users
     // need to be deliberate about calling it. The important part is that the
@@ -14,18 +18,16 @@ Welp.Views.IndexMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
+
+
     return this._map;
   },
 
-  render: function () {
-    // Call this method `render` if you like; I've changed the name so users
-    // need to be deliberate about calling it. The important part is that the
-    // map object should only be instantiated ONCE for a given MapShow view.
-    var mapOptions = {
-      center: { lat: 37.7833, lng: -122.4167 },
-      zoom: 12
-    };
-
-    this._map = new google.maps.Map(this.el, mapOptions);
+  initMarkers: function(markers, map) {
+    markers.each(function(marker) {
+      marker.setMap(map);
+    });
   }
+
+
 });
