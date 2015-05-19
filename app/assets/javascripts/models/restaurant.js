@@ -7,9 +7,6 @@ Welp.Models.Restaurant = Backbone.Model.extend({
       delete json.reviews;
     }
 
-    // geocode and build marker upon fetch
-    this.setMarker(json);
-
     return json;
   },
 
@@ -33,25 +30,26 @@ Welp.Models.Restaurant = Backbone.Model.extend({
     return json;
   },
 
-  setMarker: function(json) {
-    var request = {
-      address: json.address1 + "," + json.address2
-    };
+  marker: function() {
 
-    var geocoder = new google.maps.Geocoder();
+    if (this._marker === null || this._marker) {}
+    else {
+      this.setMarker();
+    }
 
-    return geocoder.geocode(request, function(results, status) {
-      if (status === "ZERO_RESULTS") {
-        return;
-      }
+    return this._marker;
+  },
 
-      // if there's a matching location, make a marker
-      var latlng = results[0].geometry.location
-
+  setMarker: function() {
+    if (this.get("position").lat) {
       this._marker = new google.maps.Marker({
-        position: latlng
+        position: this.get("position")
       })
-    }.bind(this))
+    }
+    else {
+      this._marker = null
+    }
+
   }
 
 });
