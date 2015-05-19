@@ -12,7 +12,7 @@ Welp.Models.User = Backbone.Model.extend({
 
   reviews: function() {
     if (!this._reviews) {
-      this._reviews = new Welp.Collections.Reviews({
+      this._reviews = new Welp.Collections.Reviews([], {
         user: this
       });
     }

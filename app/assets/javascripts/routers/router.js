@@ -17,6 +17,7 @@ Welp.Routers.Router = Backbone.Router.extend({
     "": "restaurantsIndex",
     "search?query=:query&loc=:loc": "restaurantSearch",
     "restaurants/new": "restaurantNew",
+    "restaurants/:id/reviews/new": "reviewNew",
     "restaurants/:id": "restaurantShow",
     "users/:id": "userShow",
     "map": "map"
@@ -45,6 +46,14 @@ Welp.Routers.Router = Backbone.Router.extend({
 
     this.swapView(view)
   },
+
+  reviewNew: function() {
+    var view = new Welp.Views.ReviewForm({
+      model: new Welp.Models.Review(),
+      collection: this.model.reviews(),
+      restaurant: this.model
+    })
+  }
 
   restaurantShow: function(id) {
     var view = new Welp.Views.RestaurantShow({

@@ -1,10 +1,38 @@
-<section class="review-sidebar">
-  <a href="#users/<%= review.get("user_id") %>"><%= review.escape("username") %></a>
+<section class="review-sidebar clear">
+  <figure class="review-avatar">
+    <img src="<%= review.get("avatar_url") %>">
+  </figure>
+
+  <section class="review-sidebar-text">
+    <a href="#users/<%= review.get("user_id") %>"><%= review.escape("username") %></a>
+
+    <p class="city">New York, NY</p>
+  </section>
 </section>
 
 <section class="review-content">
-  <figure class="review-rating"><%= review.escape("rating") %></figure>
+  <figure class="review-show-rating-stuff clearfix">
+    <div class="rating review-show-rating" data-rate="<%= review.escape("rating") %>">
+      <i class="star-1">★</i>
+      <i class="star-2">★</i>
+      <i class="star-3">★</i>
+      <i class="star-4">★</i>
+      <i class="star-5">★</i>
+    </div>
+
+    <i class="review-show-date"><%= review.escape("date") %></i>
+  </figure>
   <p class="review-body">
     <%= review.escape("body") %>
   </p>
+
+  <section class="review-show-images">
+    <% _(review.get("review_images")).each(function(reviewImage) { %>
+      <figure class="review-show-image">
+        <img src="<%= reviewImage.image_url %>">
+      </figure>
+    <% })  %>
+
+  </section>
+
 </section>

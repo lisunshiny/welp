@@ -1,6 +1,6 @@
 Welp.Views.ReviewShow = Backbone.View.extend({
   tagName: "li",
-  className: "review-show",
+  className: "review-show clearfix",
 
   initialize: function () {
     this.listenTo(this.model, "sync change", this.render)

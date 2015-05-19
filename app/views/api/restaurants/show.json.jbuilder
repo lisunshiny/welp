@@ -16,12 +16,15 @@ json.num_reviews @restaurant.num_reviews
 json.reviews @restaurant.reviews do |review|
   json.id review.id
   json.rating review.rating
+  json.date review.created_at.strftime("%m/%d/%Y")
   json.body review.body
   json.user_id review.user_id
   json.username review.user.username
+  json.avatar_url asset_path(review.user.avatar.url)
   json.created_at review.created_at
 
-  json.review_images review.review_images do |review_image|
+
+  review_images = json.review_images review.review_images do |review_image|
       json.image_url asset_path(review_image.image.url)
   end
 end
