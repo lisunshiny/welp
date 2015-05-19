@@ -12,6 +12,9 @@ class Restaurant < ActiveRecord::Base
     content_type: { content_type: /\Aimage\/.*\Z/ },
     size: { less_than: 3.megabytes }
 
+  geocoded_by :full_street_address
+  after_validation :geocode
+
   belongs_to :user
   has_many :reviews
   has_many :review_images, through: :reviews, source: :review_images
@@ -36,5 +39,9 @@ class Restaurant < ActiveRecord::Base
 
   def num_reviews
     self.reviews.count
+  end
+
+  def full_street_address
+    "#{self.address}, #{self.city}, #{self.state}, #{self.zip}"
   end
 end

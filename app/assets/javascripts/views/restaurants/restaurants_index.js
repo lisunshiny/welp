@@ -39,7 +39,6 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     this.$el.find(".index-map-container").html(this.indexMapView.$el)
     //put the map on the screen
     var map = this.indexMapView.initMap();
-    debugger;
     //put the markers on the screen
     this.collection.putMarkers(map);
   }

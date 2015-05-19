@@ -8,6 +8,11 @@ json.address1 @restaurant.address
 json.address2 "#{@restaurant.city}, #{@restaurant.state} #{@restaurant.zip}"
 json.phone @restaurant.phone
 
+json.position do
+  json.lat @restaurant.latitude
+  json.long @restaurant.longitude
+end
+
 json.username @restaurant.user.username
 json.user_id @restaurant.user_id
 json.avg_rating @restaurant.avg_rating
