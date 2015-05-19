@@ -19,6 +19,7 @@ Welp.Routers.Router = Backbone.Router.extend({
     "restaurants/new": "restaurantNew",
     "restaurants/:id": "restaurantShow",
     "users/:id": "userShow",
+    "map": "map"
   },
 
   renderHeader: function() {
@@ -75,13 +76,21 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.swapView(view)
   },
 
-  swapView: function(view) {
-    if (this._currentView) {
-      this._currentView.remove();
-    }
+  map: function() {
+    var view = new Welp.Views.IndexMap();
+    this.swapView(view);
+    view.initMap();
+  },
 
+  swapView: function(view) {
+    this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+
+    // Because of how the Google Map resizes, we must insert the view's `$el`
+    // before initializing the map object. Beware of this in any views that
+    // contain a map subview.
+    this.$rootEl.html(view.$el);
+    view.render();
   }
 
 

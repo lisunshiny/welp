@@ -2,6 +2,11 @@ class Api::ReviewsController < Api::ApiController
   def create
     @review = current_user.reviews.new(review_params)
 
+    # its gonna look something like this...
+    # params[:images].each do |image|
+    #   @review.review_images.build(image: image)
+    # end
+
     if @review.save
       render json: @review
     else

@@ -14,12 +14,17 @@ class Restaurant < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews
-  has_many :review_images, through: :reviews
+  has_many :review_images, through: :reviews, source: :review_images
 
   def images
-    return [this.pic] + this.review_images if this.pic
+    if self.pic && self.review_images
+      return [self.pic] + self.review_images
+    elsif self.pic
+      return [self.pic]
+    else
+      return self.review_images
+    end
 
-    this.review_images
   end
 
   def avg_rating
