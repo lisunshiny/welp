@@ -14,6 +14,13 @@ class Restaurant < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews
+  has_many :review_images, through: :reviews
+
+  def images
+    return [this.pic] + this.review_images if this.pic
+
+    this.review_images
+  end
 
   def avg_rating
     reviews = self.reviews

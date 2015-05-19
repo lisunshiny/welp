@@ -5,5 +5,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :restaurant
 
+  has_many :review_images
+
 
 end

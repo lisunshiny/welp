@@ -66,8 +66,8 @@ Welp.Views.ReviewForm = Backbone.View.extend({
     typeof this._num === "number" || (this._num = -1);
     this._num ++;
 
-    var newThumb = $("<img>").attr("src", src).attr("data-num", this._num)
-    var newFigure = $("<figure>").html(newThumb);
+    var newThumb = $("<img>").attr("src", src)
+    var newFigure = $("<figure>").attr("data-num", this._num).html(newThumb);
     this.$el.find(".attached-images").append(newFigure);
     // todo: clear out thing;
   }
