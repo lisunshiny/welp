@@ -24,7 +24,7 @@ Welp.Views.ReviewForm = Backbone.View.extend({
 
   submit: function() {
     event.preventDefault();
-    var attrs = this.$el.serializeJSON();
+    var attrs = this.$el.serializeJSON().review;
     var that = this;
 
     this.model.save(attrs, {

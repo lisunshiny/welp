@@ -1,7 +1,7 @@
 json.id @restaurant.id
 json.name @restaurant.name
 json.tag @restaurant.tag
-json.pic asset_path(@restaurant.pic.url)
+json.pic asset_path(@restaurant.image_url)
 
 
 json.address1 @restaurant.address
@@ -20,4 +20,8 @@ json.reviews @restaurant.reviews do |review|
   json.user_id review.user_id
   json.username review.user.username
   json.created_at review.created_at
+
+  json.review_images review.review_images do |review_image|
+      json.image_url asset_path(review_image.image.url)
+  end
 end

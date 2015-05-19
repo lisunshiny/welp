@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates_attachment :avatar,
     content_type: { content_type: /\Aimage\/.*\Z/ },
-    size: { less_than: 1.megabytes }
+    size: { less_than: 3.megabytes }
 
 
   after_initialize :ensure_session_token

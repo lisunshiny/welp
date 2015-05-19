@@ -3,8 +3,7 @@ class Api::ReviewsController < Api::ApiController
 
   def create
     @review = current_user.reviews.new(review_params)
-
-    @review.review_images.new(review_images_params[:review_images])
+    @review.review_images.new(images_params) unless images_params.nil?
 
     if @review.save
       render json: @review
@@ -34,8 +33,8 @@ class Api::ReviewsController < Api::ApiController
       Restaurant.find(review_params[:restaurant_id])
     end
 
-    def review_images_params
-      params.permit(review_images: [:image])
+    def images_params
+      params.permit(review_images: [:image])[:review_images]
     end
 
 end

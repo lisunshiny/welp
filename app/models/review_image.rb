@@ -4,7 +4,7 @@ class ReviewImage < ActiveRecord::Base
   validates_attachment :image,
     presence: true,
     content_type: { content_type: /\Aimage\/.*\Z/ },
-    size: { less_than: 1.megabytes }
+    size: { less_than: 3.megabytes }
 
   belongs_to :review
   has_one :restaurant, through: :review

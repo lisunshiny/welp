@@ -10,22 +10,23 @@ class Restaurant < ActiveRecord::Base
 
   validates_attachment :pic,
     content_type: { content_type: /\Aimage\/.*\Z/ },
-    size: { less_than: 1.megabytes }
+    size: { less_than: 3.megabytes }
 
   belongs_to :user
   has_many :reviews
   has_many :review_images, through: :reviews, source: :review_images
 
-  def images
-    if self.pic && self.review_images
-      return [self.pic] + self.review_images
-    elsif self.pic
-      return [self.pic]
+  def image_url
+    if self.pic.url != "pics/missing.jpg"
+      return self.pic.url
+    elsif !self.review_images.empty?
+      return self.review_images.first.image.url
     else
-      return self.review_images
+      return self.pic.url
     end
-
   end
+
+
 
   def avg_rating
     reviews = self.reviews
