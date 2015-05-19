@@ -2,3 +2,20 @@
   width: 100px;
   length: 100px;
 }
+
+.review-form-item {
+  padding: 20px 0;
+}
+
+
+.review-form-item > label {
+  float: left;
+  display: block;
+  width: 300px;
+  font-weight: 600;
+}
+
+.review-item-input {
+  float: left;
+  display: block;
+}

@@ -11,6 +11,8 @@ Welp.Views.ReviewForm = Backbone.View.extend({
   initialize: function (opts) {
     this.restaurant = opts.restaurant;
     this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.restaurant, "sync", this.render);
+
   },
 
   template: JST["reviews/form"],
@@ -30,7 +32,7 @@ Welp.Views.ReviewForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
-        Backbone.history.loadUrl();
+        Backbone.history.navigate("restaurants/" + that.restaurant.id, { trigger: true });
       },
 
       error: function(model, response) {

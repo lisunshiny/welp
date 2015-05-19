@@ -1,25 +1,32 @@
+<h2>Write a review for <%= restaurant.escape("name") %></h2>
 
 <form class="review-form">
   <input type="hidden" name="review[restaurant_id]" value="<%= restaurant.id %>">
 
-  <label for="review_rating">Rating</label>
-  <select id="review_rating" name="review[rating]">
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+  <section class="review-form-item clearfix">
+    <label for="review_rating">Rating</label>
+    <select id="review_rating" name="review[rating]" class="review-item-input">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </section>
 
-  <textarea name="review[body]"></textarea>
+  <section class="review-form-item clearfix">
+    <label for="review-body">Body</label>
+    <textarea name="review[body]" id="review-body" class="review-item-input"></textarea>
+  </section>
 
-  <label>
-    Picture(optional)
-    <input type="file" name="review_image[pic]" id="input-review-image">
-  </label>
-
-  <button class="submit-review">Submit!</button>
+  <section class="review-form-item clearfix">
+    <label for="input-review-image">Upload Images! (optional)</label>
+      <input type="file" name="review_image[pic]" id="input-review-image" class="review-item-input">
+  </section>
 
   <section class="attached-images"></section>
+
+
+  <button class="submit-review">Submit!</button>
 </form>
