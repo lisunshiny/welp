@@ -4,12 +4,6 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addRestaurantListItem);
 
-    // obsolete?
-    this.addSubview(".new-restaurant-form", new Welp.Views.RestaurantForm({
-      model: new Welp.Models.Restaurant(),
-      collection: this.collection,
-    }));
-
     this.indexMapView = new Welp.Views.IndexMap({
       collection: this.collection
     });

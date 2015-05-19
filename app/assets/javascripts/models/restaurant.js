@@ -28,6 +28,22 @@ Welp.Models.Restaurant = Backbone.Model.extend({
     }
 
     return json;
+  },
+
+  setLatlng: function() {
+    var request = {
+      address: this.escape("address1") + "," + this.escape("address2")
+    };
+
+    var geocoder = new google.maps.Geocoder();
+
+    return geocoder.geocode(request, function(results, status) {
+      if (status === "ZERO_RESULTS") {
+        return;
+      }
+      console.log(results);
+      this._latlng = results[0].geometry.location
+    }.bind(this))
   }
 
 });
