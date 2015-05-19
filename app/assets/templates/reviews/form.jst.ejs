@@ -1,22 +1,25 @@
-<input type="hidden" name="review[restaurant_id]" value="<%= restaurant.id %>">
 
-<label for="review_rating">Rating</label>
-<select id="review_rating" name="review[rating]">
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-</select>
+<form class="review-form">
+  <input type="hidden" name="review[restaurant_id]" value="<%= restaurant.id %>">
 
-<textarea name="review[body]"></textarea>
+  <label for="review_rating">Rating</label>
+  <select id="review_rating" name="review[rating]">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 
-<label>
-  Picture(optional)
-  <input type="file" name="review_image[pic]" id="input-review-image">
-</label>
+  <textarea name="review[body]"></textarea>
 
-<button class="submit-review">Submit!</button>
+  <label>
+    Picture(optional)
+    <input type="file" name="review_image[pic]" id="input-review-image">
+  </label>
 
-<section class="attached-images"></section>
+  <button class="submit-review">Submit!</button>
+
+  <section class="attached-images"></section>
+</form>

@@ -12,7 +12,7 @@
       <i class="star-4">★</i>
       <i class="star-5">★</i>
     </div>
-    
+
     <span class="num-reviews-show">
       <%= restaurant.get("num_reviews") %> reviews
     </span>
@@ -25,6 +25,10 @@
 
   </section>
 
+  <a class="write-review-button" href="#/restaurants/<%= restaurant.id %>/reviews/new">
+    ★ Write a review
+  </a>
+
 </header>
 <p>
   <%= restaurant.escape("address1") %>
@@ -36,6 +40,3 @@
 
 <h3>Reviews</h3>
 <ul class="review-list"></ul>
-
-<h4>New review</h4>
-<section class="new-review-form"></section>

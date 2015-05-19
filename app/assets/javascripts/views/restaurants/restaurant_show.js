@@ -4,13 +4,6 @@ Welp.Views.RestaurantShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.reviews(), "add", this.addSubviewReview);
 
     this.model.reviews().each(this.addSubviewReview.bind(this));
-
-    this.addSubview(".new-review-form", new Welp.Views.ReviewForm({
-      model: new Welp.Models.Review(),
-      collection: this.model.reviews(),
-      restaurant: this.model
-    }));
-
   },
 
 

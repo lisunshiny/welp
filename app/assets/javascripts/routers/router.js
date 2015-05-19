@@ -47,13 +47,16 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.swapView(view)
   },
 
-  reviewNew: function() {
+  reviewNew: function(id) {
+    var restaurant = this.collection.getOrFetch(id);
     var view = new Welp.Views.ReviewForm({
       model: new Welp.Models.Review(),
-      collection: this.model.reviews(),
-      restaurant: this.model
+      collection: restaurant.reviews(),
+      restaurant: restaurant
     })
-  }
+
+    this.swapView(view);
+  },
 
   restaurantShow: function(id) {
     var view = new Welp.Views.RestaurantShow({
