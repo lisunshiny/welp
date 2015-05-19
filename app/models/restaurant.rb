@@ -18,7 +18,7 @@ class Restaurant < ActiveRecord::Base
   def avg_rating
     reviews = self.reviews
 
-    reviews.empty? ? nil : reviews.sum(:rating) / reviews.length
+    reviews.empty? ? nil : reviews.sum(:rating) / reviews.length.to_f
   end
 
   def num_reviews

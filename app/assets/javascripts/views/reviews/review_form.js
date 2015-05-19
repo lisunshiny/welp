@@ -4,7 +4,8 @@ Welp.Views.ReviewForm = Backbone.View.extend({
   className: "review-form",
 
   events: {
-    "click .submit-review": "submit"
+    "click .submit-review": "submit",
+    "change #input-review-image": "fileInputChange"
   },
 
   initialize: function (opts) {
@@ -37,5 +38,38 @@ Welp.Views.ReviewForm = Backbone.View.extend({
         console.log(response);
       }
     });
+  },
+
+  fileInputChange: function(event) {
+    var that = this;
+    var pic = event.currentTarget.files[0];
+    var images = []
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+      that._updatePreview(reader.result);
+      images.push(reader.result);
+    };
+
+    if (pic) {
+      reader.readAsDataURL(pic)
+    }
+    else {
+      // that._updatePreview("");
+      // delete that.model._image;
+    }
+  },
+
+  _updatePreview: function(src) {
+    // set this._num to be equal to -1 if it doesn't exist yet
+    // it'll become 1 after ++
+    typeof this._num === "number" || (this._num = -1);
+    this._num ++;
+
+    var newThumb = $("<img>").attr("src", src).attr("data-num", this._num)
+    var newFigure = $("<figure>").html(newThumb);
+    this.$el.find(".attached-images").append(newFigure);
+    // todo: clear out thing;
   }
+
 })
