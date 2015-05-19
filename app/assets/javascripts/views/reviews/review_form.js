@@ -43,12 +43,11 @@ Welp.Views.ReviewForm = Backbone.View.extend({
   fileInputChange: function(event) {
     var that = this;
     var pic = event.currentTarget.files[0];
-    var images = []
     var reader = new FileReader();
 
     reader.onloadend = function() {
       that._updatePreview(reader.result);
-      images.push(reader.result);
+      that.model.addImage(reader.result)
     };
 
     if (pic) {

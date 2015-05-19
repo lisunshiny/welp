@@ -1,11 +1,10 @@
 class Api::ReviewsController < Api::ApiController
+  wrap_parameters(false)
+
   def create
     @review = current_user.reviews.new(review_params)
 
-    # its gonna look something like this...
-    # params[:images].each do |image|
-    #   @review.review_images.build(image: image)
-    # end
+    @review.review_images.new(review_images_params[:review_images])
 
     if @review.save
       render json: @review
@@ -22,11 +21,21 @@ class Api::ReviewsController < Api::ApiController
 
   private
     def review_params
-      params.require(:review).permit(:rating, :body, :restaurant_id)
+      review_params = params.require(:review).permit(:rating, :body, :restaurant_id)
+
+      review_params[:restaurant_id] = review_params[:restaurant_id].to_i
+      review_params[:rating] = review_params[:rating].to_i
+
+
+      return review_params
     end
 
     def current_restaurant
       Restaurant.find(review_params[:restaurant_id])
+    end
+
+    def review_images_params
+      params.permit(review_images: [:image])
     end
 
 end
