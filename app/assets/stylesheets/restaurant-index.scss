@@ -1,0 +1,41 @@
+
+.new-restaurant-button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: block;
+  background: #D31800;
+  box-shadow: 0 0 2px #000;
+  padding: 10px 15px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.index-map-container {
+  display: inline-block;
+  float: right;
+  border-top: 1px solid #CCCCC8;
+
+}
+
+.index-map-canvas {
+  width: 350px;
+  height: 350px;
+}
+
+.map-box {
+  margin-top: 50px;
+  float: right;
+  border: 1px solid #CCCCC8;
+
+}
+
+
+.map-box p {
+  background: #F5F5F1;
+  margin: 0;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
