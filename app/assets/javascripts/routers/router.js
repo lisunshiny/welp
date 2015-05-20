@@ -32,6 +32,7 @@ Welp.Routers.Router = Backbone.Router.extend({
   },
 
   restaurantsIndex: function() {
+    this.collection.fetch();
     var view = new Welp.Views.RestaurantsIndex({
       collection: this.collection
     })
@@ -75,7 +76,8 @@ Welp.Routers.Router = Backbone.Router.extend({
     results.fetch({ data: params })
 
     var view = new Welp.Views.SearchIndex({
-      collection: results,
+      params: params,
+      collection: results
     });
 
     this.swapView(view)
