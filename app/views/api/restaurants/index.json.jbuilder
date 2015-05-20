@@ -1,4 +1,9 @@
+order = 1
+
+
 json.array! @restaurants do |restaurant|
+  json.ord order
+  order += 1
   json.id restaurant.id
   json.name restaurant.name
   json.tag restaurant.tag

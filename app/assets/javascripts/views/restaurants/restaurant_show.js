@@ -1,7 +1,10 @@
 Welp.Views.RestaurantShow = Backbone.CompositeView.extend({
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render)
     this.listenTo(this.model.reviews(), "add", this.addSubviewReview);
+
+    this.showMapView = new Welp.Views.ShowMap({
+      model: this.model
+    })
 
     this.model.reviews().each(this.addSubviewReview.bind(this));
   },
@@ -28,8 +31,15 @@ Welp.Views.RestaurantShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
 
+    if (typeof this.model.get("name") != "undefined") {
+      this.$el.find(".show-map-container").html(this.showMapView.$el);
+      this.showMapView.initMap();
+    }
+
     return this;
-  }
+  },
+
+
 
 
 })

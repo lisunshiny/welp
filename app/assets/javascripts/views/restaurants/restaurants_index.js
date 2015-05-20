@@ -1,7 +1,6 @@
 Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   className: "clearfix",
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.renderAfterFetch);
     this.listenTo(this.collection, "add", this.addRestaurantListItem);
 
     this.indexMapView = new Welp.Views.IndexMap({
@@ -35,10 +34,5 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     }
 
     return this;
-  },
-
-  renderAfterFetch: function() {
-    this.attachSubviews();
-    this.indexMapView.addMarkers();
   }
 })

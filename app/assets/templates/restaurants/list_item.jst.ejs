@@ -6,8 +6,9 @@
 
 <section class="restaurant-list-content">
   <h4 class="restaurant-list-title">
+    <%= restaurant.get("ord") %>.
     <a href="#restaurants/<%= restaurant.id %>">
-      <%= restaurant.get("name") %>
+      <%= restaurant.escape("name") %>
     </a>
   </h3>
 

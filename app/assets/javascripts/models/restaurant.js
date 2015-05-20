@@ -44,7 +44,11 @@ Welp.Models.Restaurant = Backbone.Model.extend({
     if (this.get("position").lat) {
 
       this._marker = new google.maps.Marker({
-        position: this.get("position")
+        position: this.get("position"),
+        // I know this is going to be deprecated soon
+        icon: {
+          url: "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + this.get("ord") + "|FF0000|FFFFFF"
+        }
       })
     }
     else {
