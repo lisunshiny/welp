@@ -18,14 +18,20 @@ Welp.Views.IndexMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
-    this.addMarkers();
+
   },
 
   addMarkers: function() {
+
+    // return if not fetched yet.
+    if (this.collection.length === 0) {
+      return;
+    }
+
     var that = this;
 
     this.collection.markers().each(function(marker) {
-      marker.setMap(that.map);
+      marker.setMap(that._map);
     })
   }
 

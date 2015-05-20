@@ -35,6 +35,10 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     }
 
     return this;
-  }
+  },
 
+  renderAfterFetch: function() {
+    this.attachSubviews();
+    this.indexMapView.addMarkers();
+  }
 })
