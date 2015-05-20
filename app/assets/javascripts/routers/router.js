@@ -101,9 +101,6 @@ Welp.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
 
-    // Because of how the Google Map resizes, we must insert the view's `$el`
-    // before initializing the map object. Beware of this in any views that
-    // contain a map subview.
     this.$rootEl.html(view.$el);
     view.render();
   }

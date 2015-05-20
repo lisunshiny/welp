@@ -1,13 +1,21 @@
 Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   className: "clearfix restaurant-index",
   initialize: function () {
-    this.listenTo(this.collection, "add", this.addRestaurantListItem);
-
     this.indexMapView = new Welp.Views.IndexMap({
       collection: this.collection
     });
+    this.refreshSubview();
+    this.pageNum = 1;
+  },
 
-    this.collection.each(this.addRestaurantListItem.bind(this));
+  refreshSubview: function() {
+    this.subview && this.removeSubview("", this.subview);
+
+    this.subview = new Welp.Views.RestaurantBox({
+      collection: this.collection
+    });
+
+    this.addSubviewWithoutRender(".restaurant-list-box", this.subview);
   },
 
   events: {
@@ -15,20 +23,9 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     "click .prev-page": "prevPage"
   },
 
-  addRestaurantListItem: function(model) {
-    var view = new Welp.Views.RestaurantList({
-      model: model,
-      collection: this.collection
-    });
-
-    this.addSubview(".restaurant-list", view);
-  },
-
-
   template: JST["restaurants/index"],
 
   render: function() {
-    debugger;
     var content = this.template({ restaurants: this.collection });
     this.$el.html(content);
     this.attachSubviews();
@@ -42,11 +39,38 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  prevPage: function() {
-    alert("prev");
+  prevPage: function(event) {
+    // event.preventDefault;
+    // this.pageNum = this.pageNum - 1
+    // alert(this.pageNum);
+    //
+    // this.collection.fetch({
+    //   data: {
+    //     page_num: this.pageNum
+    //   },
+    //
+    //   success: function() {
+    //     alert("hi");
+    //   }
+    // })
+
+
   },
 
   nextPage: function() {
-    alert("next");
+    event.preventDefault;
+
+    this.collection.currentPage = this.collection.currentPage + 1
+    var that = this;
+
+    this.collection.fetch({
+      data: { page_num: this.collection.currentPage },
+      success: function() {
+        that.refreshSubview();
+
+        console.log("page up")
+
+      }
+    });
   }
 })

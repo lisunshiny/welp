@@ -2,6 +2,10 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
   url: "/api/restaurants",
   model: Welp.Models.Restaurant,
 
+  initialize: function() {
+    this.currentPage = 1;
+  },
+
   parse: function(json) {
     this.totalPages = json.total_pages;
     return json.restaurants;
