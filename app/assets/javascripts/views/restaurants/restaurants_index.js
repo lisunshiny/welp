@@ -5,7 +5,6 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
       collection: this.collection
     });
     this.refreshSubview();
-    this.pageNum = 1;
   },
 
   refreshSubview: function() {
@@ -40,37 +39,23 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   },
 
   prevPage: function(event) {
-    // event.preventDefault;
-    // this.pageNum = this.pageNum - 1
-    // alert(this.pageNum);
-    //
-    // this.collection.fetch({
-    //   data: {
-    //     page_num: this.pageNum
-    //   },
-    //
-    //   success: function() {
-    //     alert("hi");
-    //   }
-    // })
+    event.preventDefault;
+    this.collection.currentPage--;
 
-
+    this.movePage(this.collection.currentPage);
   },
 
   nextPage: function() {
     event.preventDefault;
+    this.collection.currentPage++;
 
-    this.collection.currentPage = this.collection.currentPage + 1
-    var that = this;
+    this.movePage(this.collection.currentPage);
+  },
 
+  movePage: function(page) {
     this.collection.fetch({
-      data: { page_num: this.collection.currentPage },
-      success: function() {
-        that.refreshSubview();
-
-        console.log("page up")
-
-      }
+      data: { page_num: page },
+      success: this.refreshSubview.bind(this)
     });
   }
 })

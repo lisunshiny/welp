@@ -22,7 +22,6 @@ Welp.Views.RestaurantBox = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({ restaurants: this.collection })
     this.$el.html(content);
-    debugger;
 
     this.attachSubviews();
 
