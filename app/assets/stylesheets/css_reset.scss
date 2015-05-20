@@ -1,0 +1,102 @@
+/* CSS Reset */
+
+html, body, header, nav, h1, h2, h3, h4,
+h5, a, ul, li, strong, main, button, i, figure,
+section, img, div, h2, p, form, label, input,
+textarea, span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/* New defaults */
+body {
+  font-family: "open sans";
+  background: #F5F5F1;
+}
+h2 {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+
+a {
+  color: #3B67AC
+}
+
+p {
+  display: block;
+  margin: 10px 0px;
+}
+
+ul {
+  display: block;
+  margin: 10px 0px;
+}
+
+button {
+  border: 1px solid #CCCCC8;
+  padding: 5px;
+}
+
+input, textarea {
+  border: 1px solid #CCCCC8;
+  padding: 5px;
+}

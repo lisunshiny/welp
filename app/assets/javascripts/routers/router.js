@@ -59,22 +59,23 @@ Welp.Routers.Router = Backbone.Router.extend({
   },
 
   restaurantShow: function(id) {
+    this.$rootEl.removeClass("most-pages")
     var view = new Welp.Views.RestaurantShow({
       model: this.collection.getOrFetch(id)
     })
 
-    this.swapView(view)
+    this.swapView(view);
+
   },
 
   restaurantSearch: function(query, loc) {
-    console.log(loc)
     var results = new Welp.Collections.SearchResults()
     var params = { query: query, loc: loc }
 
     results.fetch({ data: params })
 
     var view = new Welp.Views.SearchIndex({
-      collection: results
+      collection: results,
     });
 
     this.swapView(view)

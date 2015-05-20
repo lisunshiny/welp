@@ -1,4 +1,6 @@
 Welp.Views.RestaurantShow = Backbone.CompositeView.extend({
+  id: "restaurant-show-outer",
+
   initialize: function() {
     this.listenTo(this.model.reviews(), "add", this.addSubviewReview);
 
