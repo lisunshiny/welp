@@ -10,6 +10,11 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addRestaurantListItem.bind(this));
   },
 
+  events: {
+    "click .next-page": "nextPage",
+    "click .prev-page": "prevPage"
+  },
+
   addRestaurantListItem: function(model) {
     var view = new Welp.Views.RestaurantList({
       model: model,
@@ -23,6 +28,7 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   template: JST["restaurants/index"],
 
   render: function() {
+    debugger;
     var content = this.template({ restaurants: this.collection });
     this.$el.html(content);
     this.attachSubviews();
@@ -34,5 +40,13 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     }
 
     return this;
+  },
+
+  prevPage: function() {
+    alert("prev");
+  },
+
+  nextPage: function() {
+    alert("next");
   }
 })

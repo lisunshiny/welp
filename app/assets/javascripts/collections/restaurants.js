@@ -2,6 +2,11 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
   url: "/api/restaurants",
   model: Welp.Models.Restaurant,
 
+  parse: function(json) {
+    this.totalPages = json.total_pages;
+    return json.restaurants;
+  },
+
   getOrFetch: function(id) {
     var model = this.find(id)
 
@@ -13,10 +18,6 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
     model.fetch();
 
     return model;
-  },
-
-  whatever: function() {
-    alert("hi");
   },
 
   //todo: make this more efficient.

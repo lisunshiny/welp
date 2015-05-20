@@ -1,7 +1,8 @@
 order = 1
+json.total_pages @restaurants.total_pages
 
+json.restaurants @restaurants do |restaurant|
 
-json.array! @restaurants do |restaurant|
   json.ord order
   order += 1
   json.id restaurant.id

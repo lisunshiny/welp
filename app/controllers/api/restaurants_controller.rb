@@ -19,7 +19,8 @@ class Api::RestaurantsController < Api::ApiController
   end
 
   def index
-    @restaurants = Restaurant.all
+    # make this a thing later
+    @restaurants = Restaurant.page(1)
 
     #custom json for this
     render :index
