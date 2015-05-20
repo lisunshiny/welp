@@ -8,7 +8,7 @@ json.array! @restaurants do |restaurant|
   json.address2 "#{restaurant.city}, #{restaurant.state} #{restaurant.zip}"
   json.position do
     json.lat restaurant.latitude
-    json.long restaurant.longitude
+    json.lng restaurant.longitude
   end
 
   json.phone restaurant.phone

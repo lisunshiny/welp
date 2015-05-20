@@ -4,9 +4,9 @@ Welp.Views.IndexMap = Backbone.View.extend({
     class: "index-map-canvas"
   },
 
-  // initialize: function() {
-  //   this.listenTo(this.collection, )
-  // },
+  initialize: function() {
+    this.listenTo(this.collection, "sync", this.addMarkers)
+  },
 
   initMap: function () {
     // Call this method `render` if you like; I've changed the name so users
@@ -18,15 +18,15 @@ Welp.Views.IndexMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
-
-
-    return this._map;
+    this.addMarkers();
   },
 
-  initMarkers: function(markers, map) {
-    markers.each(function(marker) {
-      marker.setMap(map);
-    });
+  addMarkers: function() {
+    var that = this;
+
+    this.collection.markers().each(function(marker) {
+      marker.setMap(that.map);
+    })
   }
 
 

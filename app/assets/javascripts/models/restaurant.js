@@ -42,6 +42,7 @@ Welp.Models.Restaurant = Backbone.Model.extend({
 
   setMarker: function() {
     if (this.get("position").lat) {
+
       this._marker = new google.maps.Marker({
         position: this.get("position")
       })

@@ -10,7 +10,7 @@ json.phone @restaurant.phone
 
 json.position do
   json.lat @restaurant.latitude
-  json.long @restaurant.longitude
+  json.lng @restaurant.longitude
 end
 
 json.username @restaurant.user.username

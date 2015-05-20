@@ -28,19 +28,13 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
 
+    if (typeof this._rendered === "undefined") {
+      this.$el.find(".index-map-container").html(this.indexMapView.$el);
+      this.indexMapView.initMap();
+      this._rendered = true;
+    }
 
     return this;
-  },
-
-  renderAfterFetch: function() {
-
-    this.render();
-    //put the empty el on the page
-    this.$el.find(".index-map-container").html(this.indexMapView.$el)
-    //put the map on the screen
-    var map = this.indexMapView.initMap();
-    //put the markers on the screen
-    this.collection.putMarkers(map);
   }
 
 })
