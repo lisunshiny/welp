@@ -18,7 +18,7 @@ Welp.Views.IndexMap = Backbone.View.extend({
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
-
+    this.addMarkers();
   },
 
   addMarkers: function() {
@@ -32,6 +32,7 @@ Welp.Views.IndexMap = Backbone.View.extend({
 
     this.collection.markers().each(function(marker) {
       marker.setMap(that._map);
+
     })
   }
 
