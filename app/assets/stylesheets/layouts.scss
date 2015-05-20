@@ -79,10 +79,26 @@
 
 // main
 
-.most-pages {
+// .main {
+//   display: block;
+//   width: 920px;
+//   background: white;
+//   margin: auto;
+//   padding: 10px 40px;
+//   border-left: 1px solid #CCCCC8;
+//   border-right: 1px solid #CCCCC8;
+//   border-bottom: 1px solid #CCCCC8;
+//
+// }
+
+.main {
+  background: #F5F5F1;
+}
+
+.main > *:first-child {
   display: block;
   width: 920px;
-  background: white;
+  background: #fff;
   margin: auto;
   padding: 10px 40px;
   border-left: 1px solid #CCCCC8;

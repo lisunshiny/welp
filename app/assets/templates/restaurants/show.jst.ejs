@@ -1,46 +1,56 @@
 <% var avgRating = Math.round(restaurant.get("avg_rating") * 2) / 2 %>
 <section id="restaurant-show-inner">
   <header class="restaurant-show-header">
+    <section class="restaurant-show-content clearfix;">
+      <h2><%= restaurant.escape("name") %></h2>
 
-    <h2><%= restaurant.escape("name") %></h2>
+      <section class="restaurant-show-rating clearfix">
+        <div class="rating show-rating" data-rate="<%= avgRating %>">
+          <i class="star-1">★</i>
+          <i class="star-2">★</i>
+          <i class="star-3">★</i>
+          <i class="star-4">★</i>
+          <i class="star-5">★</i>
+        </div>
 
-    <section class="restaurant-show-rating clearfix">
-      <div class="rating show-rating" data-rate="<%= avgRating %>">
-        <i class="star-1">★</i>
-        <i class="star-2">★</i>
-        <i class="star-3">★</i>
-        <i class="star-4">★</i>
-        <i class="star-5">★</i>
+        <span class="num-reviews-show">
+          <%= restaurant.get("num_reviews") %> reviews
+        </span>
+
+        <strong class="restaurant-list-tag">
+          <a href="#">
+            <%= restaurant.get("tag") %>
+          </a>
+        </strong>
+
+      </section>
+
+      <div class="show-maps-and-pics clearfix">
+        <section class="show-map-section">
+          <div class="show-map-container">
+          </div>
+          <p class="map-address">
+            <%= restaurant.escape("address1") %>
+            <br>
+            <%= restaurant.escape("address2") %>
+            <br>
+            <%= restaurant.escape("phone") %>
+          </p>
+        </section>
+
+        <section class="show-pics-section clearfix">
+          pics here soon
+        </section>
       </div>
 
-      <span class="num-reviews-show">
-        <%= restaurant.get("num_reviews") %> reviews
-      </span>
-
-      <strong class="restaurant-list-tag">
-        <a href="#">
-          <%= restaurant.get("tag") %>
-        </a>
-      </strong>
-
+      <a class="write-review-button" href="#/restaurants/<%= restaurant.id %>/reviews/new">
+        ★ Write a review
+      </a>
     </section>
-
-    <div class="show-map-container">
-    </div>
-
-    <a class="write-review-button" href="#/restaurants/<%= restaurant.id %>/reviews/new">
-      ★ Write a review
-    </a>
-
   </header>
-  <p>
-    <%= restaurant.escape("address1") %>
-    <br>
-    <%= restaurant.escape("address2") %>
-    <br>
-    <%= restaurant.escape("phone") %>
-  </p>
 
-  <h3>Reviews</h3>
-  <ul class="review-list"></ul>
+  <section class="restaurant-show-reviews">
+    <h3>Reviews</h3>
+    <ul class="review-list"></ul>
+  </section>
 </section>

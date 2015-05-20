@@ -3,7 +3,6 @@ json.name @restaurant.name
 json.tag @restaurant.tag
 json.pic asset_path(@restaurant.image_url)
 
-
 json.address1 @restaurant.address
 json.address2 "#{@restaurant.city}, #{@restaurant.state} #{@restaurant.zip}"
 json.phone @restaurant.phone
