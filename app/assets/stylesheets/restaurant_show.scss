@@ -14,6 +14,9 @@
 .restaurant-show-header {
   background: #F5F5F1;
   border-bottom: 1px solid #CCCCC8;
+  position: relative;
+  padding-bottom: 200px;
+
 }
 
 .restaurant-show-content {
@@ -52,7 +55,9 @@
 .restaurant-show-reviews {
   width: 920px;
   margin: auto;
+  margin-top: 100px;
   padding: 10px 40px;
+  min-height: 500px;
 }
 
 .show-map-container {
@@ -75,7 +80,24 @@
 }
 
 .show-pics-section {
-  background: green;
-  margin: 10px;
+  margin: 0 10px;
   float: left;
+}
+
+.review-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 4px;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px #e3e3e3;
+}
+
+.review-pic > img {
+  height: 100%;
+  width: auto;
+}
+
+.show-maps-and-pics {
+  position: absolute;
 }

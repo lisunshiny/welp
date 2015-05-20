@@ -22,13 +22,16 @@ class Restaurant < ActiveRecord::Base
   def image_url
     if self.pic.url != "pics/missing.jpg"
       return self.pic.url
-    elsif !self.review_images.empty?
+    elsif has_image?
       return self.review_images.first.image.url
     else
       return self.pic.url
     end
   end
 
+  def has_image?
+    !self.review_images.empty?
+  end
 
 
   def avg_rating
