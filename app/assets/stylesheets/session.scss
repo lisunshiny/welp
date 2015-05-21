@@ -12,3 +12,19 @@
   margin-bottom: 5px;
 
 }
+
+.twitter-button {
+  background-image: image-url("twitter-button.png");
+  width: 158px;
+  height: 28px;
+  display: block;
+  margin-top: 10px;
+}
+.guest-login {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #F5F5F1;
+  border: 1px solid #CCCCC8;
+  margin-top: 20px;
+  border-radius: 2px;
+}
