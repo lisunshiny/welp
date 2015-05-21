@@ -1,5 +1,7 @@
 
 class User < ActiveRecord::Base
+  include ActionView::Helpers::AssetUrlHelper
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :username, presence: true, uniqueness: true
