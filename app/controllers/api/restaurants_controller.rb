@@ -36,9 +36,9 @@ class Api::RestaurantsController < Api::ApiController
   def search
     if params[:query].present?
       restaurants_by_name = Restaurant
-        .where("name ~ :query", { query: params[:query] })
-      restaurants_by_tag = Restaurant
-        .where(tag: queried_tags(params[:query]))
+        .where("(name ~ :query) OR (tag IN (:tags))",
+          { query: params[:query],
+            tags: queried_tags(params[:query]) })
 
       @restaurants = (restaurants_by_name + restaurants_by_tag).uniq
 
