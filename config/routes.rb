@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root "static_pages#root"
+
+  get '/auth/twitter/callback', to: 'users#oauth'
+
   resources :users, only: [:create, :new, :show]
   resource :session, only: [:create, :new, :destroy]
 

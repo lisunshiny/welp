@@ -25,6 +25,12 @@ class UsersController < ApplicationController
   end
 
 
+  def oauth
+    thing = request.env['omniauth.auth']
+    fail
+  end
+
+
   private
 
   def user_params
