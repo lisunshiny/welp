@@ -20,7 +20,9 @@ class Api::RestaurantsController < Api::ApiController
 
   def index
     # make this a thing later
-    @restaurants = Restaurant.page(params[:page_num])
+    @page_num = page_num
+    @restaurants = Restaurant.page(@page_num)
+
 
     #custom json for this
     render :index
@@ -34,11 +36,12 @@ class Api::RestaurantsController < Api::ApiController
   end
 
   def search
+    @page_num = page_num
     if params[:query].present?
       @restaurants = Restaurant
         .where("(name ~ :query) OR (tag IN (:tags))",
           { query: params[:query],
-            tags: queried_tags(params[:query]) }).page(1)
+            tags: queried_tags(params[:query]) }).page(page_num)
     else
       @restaurants = Restaurant.none
     end
@@ -62,6 +65,11 @@ class Api::RestaurantsController < Api::ApiController
       tags = Restaurant.tags
 
       tags.select {|tag| query.in?(tag)}.values
+    end
+
+    def page_num
+      params[:page_num] ||= 1
+      params[:page_num] = params[:page_num].to_i
     end
 
 

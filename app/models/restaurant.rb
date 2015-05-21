@@ -1,5 +1,7 @@
 class Restaurant < ActiveRecord::Base
-  paginates_per 5
+  RESULTS_PER_PAGE = 6
+
+  paginates_per RESULTS_PER_PAGE
 
   enum tag: [:italian, :chinese, :mexican, :american, :indian]
 
@@ -33,6 +35,10 @@ class Restaurant < ActiveRecord::Base
 
   def has_image?
     !self.review_images.empty?
+  end
+
+  def self.results_per_page
+    RESULTS_PER_PAGE
   end
 
 

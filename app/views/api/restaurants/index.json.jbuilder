@@ -1,4 +1,10 @@
-order = 1
+per_page = @restaurants.results_per_page
+current_page = @page_num
+order = per_page * (current_page - 1) + 1
+
+
+
+
 json.total_pages @restaurants.total_pages
 
 json.restaurants @restaurants do |restaurant|
