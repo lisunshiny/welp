@@ -1,7 +1,7 @@
 <h2>Log in</h2>
 <%= render "shared/user_errors" %>
 
-<form action="<%= session_url %>" method="post">
+<form action="<%= session_url %>" method="post" class="log-in-form">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 

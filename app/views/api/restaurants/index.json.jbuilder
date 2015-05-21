@@ -5,8 +5,8 @@ order = per_page * (current_page - 1) + 1
 
 
 
-json.total_pages @restaurants.total_pages
-
+json.total_pages @restaurants.total_pages unless @restaurants.empty?
+json.current_page current_page
 json.restaurants @restaurants do |restaurant|
 
   json.ord order

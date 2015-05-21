@@ -8,6 +8,7 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
 
   parse: function(json) {
     this.totalPages = json.total_pages;
+    this.currentPage = json.current_page;
     return json.restaurants;
   },
 
@@ -37,6 +38,14 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
     });
 
     return this._markers;
+  },
+
+  notOnFirst: function() {
+    return this.currentPage !== 1
+  },
+
+  notOnLast: function() {
+    return this.currentPage !== this.totalPages
   }
 
 })

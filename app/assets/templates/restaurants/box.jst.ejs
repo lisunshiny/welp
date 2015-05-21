@@ -1,13 +1,39 @@
-<div class="page-flip">
-  Showing <%= restaurants.currentPage %> of <%= restaurants.totalPages %>.
-  <nav class="page-flip-nav-top">
+<% if (this.collection.length === 0) { %>
+  Oh no! There's nothing matching your search.
+<% } else { %>
+<div class="page-flip clearfix">
 
-    <button class="prev-page">Previous page</button>
-    <button class="next-page">Next page</button>
+  <nav class="page-flip-nav nav-top">
+    <% if (this.collection.notOnFirst()) { %>
+      <button class="prev-page">←</button>
+    <% } %>
+
+    <% if (this.collection.notOnLast()) { %>
+      <button class="next-page">→</button>
+    <% } %>
   </nav>
+
+  <p class="showing-message">
+    Page <%= restaurants.currentPage %> of <%= restaurants.totalPages %>
+  </p>
+
 </div>
 <ul class="restaurant-list"></ul>
-<nav class="page-flip-nav-bottom">
-  <button class="prev-page">Previous page</button>
-  <button class="next-page">Next page</button>
-</nav>
+<div class="page-flip clearfix">
+
+  <nav class="page-flip-nav nav-bottom">
+    <% if (this.collection.notOnFirst()) { %>
+      <button class="prev-page">←</button>
+    <% } %>
+
+    <% if (this.collection.notOnLast()) { %>
+      <button class="next-page">→</button>
+    <% } %>
+  </nav>
+
+  <p class="showing-message">
+    Page <%= restaurants.currentPage %> of <%= restaurants.totalPages %>
+  </p>
+
+</div>
+<% } %>

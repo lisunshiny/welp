@@ -56,5 +56,4 @@ Welp.Models.Restaurant = Backbone.Model.extend({
     }
 
   }
-
 });

@@ -12,6 +12,11 @@ Welp.Views.RestaurantBox = Backbone.CompositeView.extend({
   },
 
   addRestaurantListItem: function(model) {
+    // if it hasn't been fetched yet, return early
+    if (typeof model.get("ord") === "undefined") {
+      return;
+    };
+
     var view = new Welp.Views.RestaurantList({
       model: model,
       collection: this.collection

@@ -1,54 +1,82 @@
-<label for="restaurant_name">Name</label>
-<input
-  type="text"
-  name="restaurant[name]"
-  id="restaurant_name">
+<h2>Add a restaurant</h2>
 
-<label for="restaurant_tag">Tag</label>
-<select id="restaurant_tag" name="restaurant[tag]">
-  <option value="0">Italian</option>
-  <option value="1">Chinese</option>
-  <option value="2">Mexican</option>
-  <option value="3">American</option>
-  <option value="4">Indian</option>
-</select>
+<section class="restaurant-form-item clearfix">
 
-<label for="restaurant_address">Address</label>
-<input
-  type="text"
-  name="restaurant[address]"
-  id="restaurant_address">
+  <label for="restaurant_name">Name</label>
+  <input
+    type="text"
+    name="restaurant[name]"
+    class="restaurant-item-input"
+    id="restaurant_name">
+</section>
 
-<label for="restaurant_city">City</label>
-<input
-  type="text"
-  name="restaurant[city]"
-  id="restaurant_city">
+<section class="restaurant-form-item clearfix">
+  <label for="restaurant_tag">Tag</label>
+  <select id="restaurant_tag" name="restaurant[tag]"     class="restaurant-item-input">
+    <option value="0">Italian</option>
+    <option value="1">Chinese</option>
+    <option value="2">Mexican</option>
+    <option value="3">American</option>
+    <option value="4">Indian</option>
+  </select>
+</section>
 
-<label for="restaurant_state">State</label>
-<input
-  type="text"
-  name="restaurant[state]"
-  id="restaurant_state">
+<section class="restaurant-form-item clearfix">
+  <label for="restaurant_address">Address</label>
+  <input
+    type="text"
+    name="restaurant[address]"
+    class="restaurant-item-input"
+    id="restaurant_address">
+</section>
 
-<label for="restaurant_zip">Zip</label>
-<input
-  type="text"
-  name="restaurant[zip]"
-  id="restaurant_zip">
+<section class="restaurant-form-item clearfix">
 
-<label for="restaurant_phone">Phone</label>
-<input
-  type="integer"
-  name="restaurant[phone]"
-  id="restaurant_phone">
+  <label for="restaurant_city">City</label>
+  <input
+    type="text"
+    name="restaurant[city]"
+    class="restaurant-item-input"
+    id="restaurant_city">
+</section>
 
-<label>
-  Pic
-  <input type="file" name="restaurant[pic]" id="input-restaurant-image">
-</label>
+<section class="restaurant-form-item clearfix">
 
-<img src="" class="preview-restaurant-pic">
+  <label for="restaurant_state">State</label>
+  <input
+    type="text"
+    name="restaurant[state]"
+    class="restaurant-item-input"
+    id="restaurant_state">
+</section>
 
+<section class="restaurant-form-item clearfix">
+
+  <label for="restaurant_zip">Zip</label>
+  <input
+    type="text"
+    name="restaurant[zip]"
+    class="restaurant-item-input"
+    id="restaurant_zip">
+</section>
+
+
+<section class="restaurant-form-item clearfix">
+  <label for="restaurant_phone">Phone</label>
+  <input
+    type="integer"
+    name="restaurant[phone]"
+    class="restaurant-item-input"
+    id="restaurant_phone">
+</section>
+
+<section class="restaurant-form-item clearfix">
+  <label for="input-restaurant-image">Pic</label>
+    <input type="file" name="restaurant[pic]" id="input-restaurant-image"     class="restaurant-item-input">
+</section>
+
+<figure class="preview-restaurant-container">
+  <img src="" class="preview-restaurant-pic">
+</figure>
 
 <button class="submit-restaurant">Submit!</button>

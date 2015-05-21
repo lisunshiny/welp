@@ -1,26 +1,22 @@
-.attached-images > figure {
-  width: 100px;
-  length: 100px;
-}
 
-.review-form-item {
-  padding: 20px 0;
+.restaurant-form-item {
+  padding: 10px 0;
 }
 
 
-.review-form-item > label {
+.restaurant-form-item > label {
   float: left;
   display: block;
   width: 300px;
   font-weight: 600;
 }
 
-.review-item-input {
+.restaurant-item-input {
   float: left;
   display: block;
 }
 
-.attached-images figure {
+.preview-restaurant-container {
   width: 300px;
   length: 300px;
   margin-bottom: 10px;

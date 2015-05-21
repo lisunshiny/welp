@@ -41,3 +41,28 @@
   font-size: 16px;
   font-weight: 600;
 }
+
+.page-flip {
+  border-bottom: 1px solid #E5E5E1;
+}
+
+.showing-message {
+  float: left;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.page-flip-nav {
+  float: right;
+}
+
+.page-flip-nav button {
+  border: none;
+  color: #3B67AA;
+  position: relative;
+  bottom: 5px;
+}
+
+.page-flip-nav button:hover {
+  background: #E5E5E1;
+}

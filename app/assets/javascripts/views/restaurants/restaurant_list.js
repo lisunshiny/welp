@@ -8,9 +8,27 @@ Welp.Views.RestaurantList = Backbone.View.extend({
 
   template: JST["restaurants/list_item"],
 
+  events: {
+    "mouseenter": 'highlight',
+    "mouseleave": 'unhighlight'
+
+  },
+
   render: function() {
     var content = this.template({ restaurant: this.model });
     this.$el.html(content);
     return this;
+  },
+
+  highlight: function() {
+    if (this.model.marker()) {
+      this.model.marker().setAnimation(google.maps.Animation.BOUNCE);
+    }
+  },
+
+  unhighlight: function() {
+    if (this.model.marker()) {
+      this.model.marker().setAnimation(null);
+    }
   }
 })
