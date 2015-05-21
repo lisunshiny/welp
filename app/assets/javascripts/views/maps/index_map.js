@@ -36,16 +36,16 @@ Welp.Views.IndexMap = Backbone.View.extend({
   },
 
   addMarkers: function() {
-    // debugger;
-
     // return if not fetched yet.
     if (this.collection.length === 0) {
       return;
     }
 
-    var that = this;
+    this._markers && this.clearMarkers();
 
+    var that = this;
     var markers = this.collection.markers();
+    this._markers = _([]);
 
     for(ord in markers) {
       var marker = markers[ord];
@@ -55,8 +55,16 @@ Welp.Views.IndexMap = Backbone.View.extend({
 
       marker.setIcon(url);
       marker.setMap(that._map);
+
+      this._markers.push(marker);
     };
 
+  },
+
+  clearMarkers: function() {
+    this._markers.each(function(marker) {
+      marker.setMap(null);
+    });
   }
 
 
