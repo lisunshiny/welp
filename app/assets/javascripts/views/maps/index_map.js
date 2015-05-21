@@ -36,6 +36,7 @@ Welp.Views.IndexMap = Backbone.View.extend({
   },
 
   addMarkers: function() {
+    // debugger;
 
     // return if not fetched yet.
     if (this.collection.length === 0) {
@@ -44,15 +45,18 @@ Welp.Views.IndexMap = Backbone.View.extend({
 
     var that = this;
 
-    this.collection.markers().each(function(marker, ord) {
+    var markers = this.collection.markers();
+
+    for(ord in markers) {
+      var marker = markers[ord];
       var url = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld="
-        + (ord + 1)
+        + ord
         + "|FF0000|FFFFFF"
 
       marker.setIcon(url);
       marker.setMap(that._map);
+    };
 
-    })
   }
 
 

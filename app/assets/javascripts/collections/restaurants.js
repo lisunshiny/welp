@@ -26,13 +26,13 @@ Welp.Collections.Restaurants = Backbone.Collection.extend({
 
   //todo: make this more efficient.
   markers: function() {
-    this._markers = _([]);
+    this._markers = {};
 
     var that = this
 
     _(this.models).each(function(restaurant) {
       if (restaurant.marker()) {
-        that._markers.push(restaurant.marker());
+        that._markers[restaurant.get("ord")] = restaurant.marker();
       }
     });
 
