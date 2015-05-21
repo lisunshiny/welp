@@ -2,6 +2,7 @@ Welp.Routers.Router = Backbone.Router.extend({
   initialize: function(opts) {
     this.$rootEl = opts.$rootEl;
     this.$header = opts.$header;
+    this.$footer = opts.$footer;
 
     this.collection = new Welp.Collections.Restaurants();
     this.collection.fetch();
@@ -29,6 +30,12 @@ Welp.Routers.Router = Backbone.Router.extend({
     });
 
     this.$header.html(view.render().$el);
+  },
+
+  renderFooter: function() {
+    var view = new Welp.Views.Footer();
+
+    this.$footer.html(view.render().$el);
   },
 
   restaurantsIndex: function() {

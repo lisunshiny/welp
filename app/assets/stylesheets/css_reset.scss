@@ -78,7 +78,11 @@ h4 {
 
 
 a {
-  color: #3B67AC
+  color: #3B67AC;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 p {
