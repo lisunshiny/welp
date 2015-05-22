@@ -20,7 +20,7 @@ Welp.Views.IndexMap = Backbone.View.extend({
 
     var mapOptions = {
       center: this.center,
-      zoom: 12,
+      zoom: 14,
     };
 
     this._map = new google.maps.Map(this.el, mapOptions);
