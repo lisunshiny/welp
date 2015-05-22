@@ -50,11 +50,27 @@ class Api::RestaurantsController < Api::ApiController
 
   end
 
+  def update
+    @restaurant = current_user.restaurants.find(params[:id])
+    render json: ["You can't edit this restaurant"] unless @restaurant
+
+
+    if @restaurant.update(restaurant_params)
+      render :show
+    else
+      render json: @restaurant.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
     def restaurant_params
       restaurant_params = params.require(:restaurant)
         .permit(:name, :tag, :address, :city, :state, :zip, :phone, :pic)
+
+      if restaurant_params[:pic] && restaurant_params[:pic].include?("/assets/pics")
+        restaurant_params.delete(:pic)
+      end
 
       restaurant_params[:tag] = restaurant_params[:tag].to_i
 

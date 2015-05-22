@@ -15,6 +15,12 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
   template: JST["restaurants/form"],
 
   render: function() {
+
+    if (this.model.get("user_id") !== window.id) {
+      this.$el.html("You can't edit this!");
+      return this;
+    }
+
     var content = this.template({ restaurant: this.model });
     this.$el.html(content);
 
@@ -29,7 +35,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("restaurants/" + that.model.id, { trigger: true });
       },
 
       error: function(model, response) {

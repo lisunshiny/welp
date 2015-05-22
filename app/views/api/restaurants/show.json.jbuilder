@@ -9,6 +9,7 @@ json.city @restaurant.city
 json.state @restaurant.state
 json.zip @restaurant.zip
 json.phone @restaurant.formatted_phone
+json.raw_phone @restaurant.phone
 
 json.position do
   json.lat @restaurant.latitude
