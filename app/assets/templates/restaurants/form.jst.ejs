@@ -8,6 +8,7 @@
     type="text"
     name="restaurant[name]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("name") %>"
     id="restaurant_name">
 </section>
 
@@ -28,6 +29,7 @@
     type="text"
     name="restaurant[address]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("address1") %>"
     id="restaurant_address">
 </section>
 
@@ -38,6 +40,7 @@
     type="text"
     name="restaurant[city]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("city") %>"
     id="restaurant_city">
 </section>
 
@@ -48,6 +51,7 @@
     type="text"
     name="restaurant[state]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("state") %>"
     id="restaurant_state">
 </section>
 
@@ -58,6 +62,7 @@
     type="text"
     name="restaurant[zip]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("zip") %>"
     id="restaurant_zip">
 </section>
 
@@ -68,6 +73,7 @@
     type="integer"
     name="restaurant[phone]"
     class="restaurant-item-input"
+    value="<%= restaurant.escape("phone") %>"
     id="restaurant_phone">
 </section>
 

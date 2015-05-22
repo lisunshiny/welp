@@ -15,7 +15,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
   template: JST["restaurants/form"],
 
   render: function() {
-    var content = this.template();
+    var content = this.template({ restaurant: this.model });
     this.$el.html(content);
 
     return this;
