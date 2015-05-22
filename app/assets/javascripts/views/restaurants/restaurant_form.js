@@ -16,7 +16,7 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
 
   render: function() {
 
-    if (this.model.get("user_id") !== window.id) {
+    if (!this.model.isNew() && this.model.get("user_id") !== window.id) {
       this.$el.html("You can't edit this!");
       return this;
     }
