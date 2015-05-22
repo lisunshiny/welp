@@ -2,7 +2,9 @@
 
 .header {
   display: block;
-  background: #B31300;
+  background-image: linear-gradient(#C41200, #AF0606);
+  box-shadow: 0 0 5px #4E0202;
+  z-index: 100;
   color: white;
   position: relative;
 }
