@@ -8,7 +8,7 @@ Welp.Views.RestaurantBox = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addRestaurantListItem);
     this.listenTo(this.collection, "sync", this.render)
 
-    this.collection.each(this.addRestaurantListItem.bind(this));
+    // this.collection.each(this.addRestaurantListItem.bind(this));
   },
 
   addRestaurantListItem: function(model) {
@@ -27,8 +27,9 @@ Welp.Views.RestaurantBox = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({ restaurants: this.collection })
     this.$el.html(content);
+    this.collection.each(this.addRestaurantListItem.bind(this));
 
-    this.attachSubviews();
+    // this.attachSubviews();
 
     return this;
   }
