@@ -5,9 +5,11 @@ class Restaurant < ActiveRecord::Base
 
   enum tag: [:italian, :chinese, :mexican, :american, :indian]
 
-  validates :enum, :name, :tag, :address, :city, :state, :zip, :phone, :user_id, null: false
+  validates :name, :tag, :address, :city, :state, :zip, :phone, :user_id, presence: true
 
-  validates_inclusion_of :zip, { :in => 10000..99999 }
+  validates_inclusion_of :zip, { in: 10000..99999 }
+  validates_inclusion_of :phone, { in: 1000000000..9999999999 }
+
 
   has_attached_file :pic,
     default_url: ':attachment/missing.jpg'
@@ -55,4 +57,5 @@ class Restaurant < ActiveRecord::Base
   def full_street_address
     "#{self.address}, #{self.city}, #{self.state}, #{self.zip}"
   end
+
 end

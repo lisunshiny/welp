@@ -64,7 +64,7 @@ class Api::RestaurantsController < Api::ApiController
     def queried_tags(query)
       tags = Restaurant.tags
 
-      tags.select {|tag| query.in?(tag)}.values
+      tags.select {|tag| query.downcase.in?(tag)}.values
     end
 
     def page_num
