@@ -34,6 +34,10 @@
   float: left;
 }
 
+.review-show-images {
+  width: 670px;
+}
+
 .review-show-date {
   float: left;
   margin-left: 10px;
@@ -46,6 +50,12 @@
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  margin-bottom: 10px; //new
+  margin-right: 10px;
+  float: left;
+
+
+
 }
 
 .review-show-image > img {
