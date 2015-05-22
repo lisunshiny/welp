@@ -36,7 +36,10 @@ Welp.Views.ReviewForm = Backbone.View.extend({
       },
 
       error: function(model, response) {
-        debugger;
+        var errors = $.parseJSON(response.responseText).join(", ")
+        var $container = that.$el.find(".error-messages")
+
+        $container.html(errors);
         console.log(response);
       }
     });

@@ -5,7 +5,7 @@ json.pic asset_path(@restaurant.image_url)
 
 json.address1 @restaurant.address
 json.address2 "#{@restaurant.city}, #{@restaurant.state} #{@restaurant.zip}"
-json.phone @restaurant.phone
+json.phone @restaurant.formatted_phone
 
 json.position do
   json.lat @restaurant.latitude

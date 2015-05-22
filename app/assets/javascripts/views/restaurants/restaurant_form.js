@@ -37,8 +37,6 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
         var $container = that.$el.find(".error-messages")
 
         $container.html(errors);
-        debugger;
-
         console.log(response);
       }
     });

@@ -35,6 +35,12 @@ class Restaurant < ActiveRecord::Base
     end
   end
 
+  def formatted_phone
+    num = self.phone.to_s
+
+    return "(#{num[0..2]})-#{num[3..5]}-#{num[6..9]}"
+  end
+
   def has_image?
     !self.review_images.empty?
   end
