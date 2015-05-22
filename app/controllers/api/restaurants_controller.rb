@@ -39,7 +39,7 @@ class Api::RestaurantsController < Api::ApiController
     @page_num = page_num
     if params[:query].present?
       @restaurants = Restaurant
-        .where("(name ~ :query) OR (tag IN (:tags))",
+        .where("(LOWER(name) ~ LOWER(:query)) OR (tag IN (:tags))",
           { query: params[:query],
             tags: queried_tags(params[:query]) }).page(page_num)
     else
