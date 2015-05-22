@@ -5,7 +5,7 @@ window.Welp = {
   Routers: {},
   initialize: function() {
 
-    new Welp.Routers.Router({
+    window.router = new Welp.Routers.Router({
       $rootEl: $(".main"),
       $header: $(".header"),
       $footer: $(".footer")

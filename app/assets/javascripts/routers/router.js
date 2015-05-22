@@ -40,6 +40,7 @@ Welp.Routers.Router = Backbone.Router.extend({
   },
 
   restaurantsIndex: function() {
+    console.log("router")
     this.collection.fetch();
     var view = new Welp.Views.RestaurantsIndex({
       collection: this.collection

@@ -2,6 +2,10 @@ Welp.Views.Header = Backbone.CompositeView.extend({
   tagName: "nav",
   className: "header-nav clearfix",
 
+  events: {
+    "click .home-link": "goHome"
+  },
+
   template: JST["header"],
 
   initialize: function() {
@@ -18,5 +22,10 @@ Welp.Views.Header = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  goHome: function() {
+    console.log("home")
+    window.router.navigate("restaurantsIndex", { trigger: true });
   }
 })
