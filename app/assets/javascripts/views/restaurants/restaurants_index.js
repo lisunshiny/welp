@@ -34,8 +34,9 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
       this.$el.find(".index-map-container").html(this.indexMapView.$el);
       this.indexMapView.initMap();
       this._rendered = true;
-    } else {
       router.flashes = "";
+
+    } else {
     }
 
     return this;
