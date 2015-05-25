@@ -1,7 +1,7 @@
 Welp.Views.SearchIndex = Welp.Views.RestaurantsIndex.extend({
 
   render: function() {
-    var content = this.template({ restaurants: this.collection });
+    var content = this.template({ restaurants: this.collection, flashes: router.flashes });
     this.$el.html(content);
     this.$el.find("h2").html("Search results" );
 

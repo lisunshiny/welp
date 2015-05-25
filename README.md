@@ -1,9 +1,10 @@
-# [welp.space](welp.space)
+# [welp.space](www.welp.space)
+
+Welp is a Yelp clone written primarily in Backbone and Rails. [Check it out live!](www.welp.space)
 
 ![screenshot](public/screenshot.png)
 
 
-Welp is a Yelp clone written primarily in Backbone and Rails. [Check it out live!](welp.space)
 
 ### Highlights
 
