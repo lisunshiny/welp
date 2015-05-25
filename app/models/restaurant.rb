@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  RESULTS_PER_PAGE = 1
+  RESULTS_PER_PAGE = 6
 
   paginates_per RESULTS_PER_PAGE
 
