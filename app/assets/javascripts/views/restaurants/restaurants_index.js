@@ -25,7 +25,7 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   template: JST["restaurants/index"],
 
   render: function() {
-    debugger;
+    
     var content = this.template({ restaurants: this.collection, flashes: router.flashes });
     this.$el.html(content);
     this.attachSubviews();

@@ -31,11 +31,16 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON().restaurant;
     var that = this;
+    var isNew = this.model.isNew();
 
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
-        router.flashes = "Your restaurant has been successfully created!"
+        if (isNew) {
+          router.flashes = "Your restaurant has been successfully created!"
+        } else {
+          router.flashes = "Your restaurant has been successfully updated."
+        }
         Backbone.history.navigate("restaurants/" + that.model.id, { trigger: true });
         },
 

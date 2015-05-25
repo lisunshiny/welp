@@ -32,6 +32,7 @@ Welp.Views.ReviewForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
+        router.flashes = "Your review has been successfully submitted."
         Backbone.history.navigate("restaurants/" + that.restaurant.id, { trigger: true });
       },
 
