@@ -1,5 +1,10 @@
 
-<%= flashes %>
+<% if (flashes !== "" && typeof flashes !== "undefined") { %>
+  <section class="flash-container-index">
+    <%= flashes %>
+  </section>
+<% } %>
+
 <h2> Restaurants </h1>
 
 <section class="restaurant-list-box">

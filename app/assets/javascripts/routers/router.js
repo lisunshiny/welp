@@ -3,7 +3,6 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.$rootEl = opts.$rootEl;
     this.$header = opts.$header;
     this.$footer = opts.$footer;
-    // this.flashes = "testing"
 
     this.collection = new Welp.Collections.Restaurants();
     this.collection.fetch();
