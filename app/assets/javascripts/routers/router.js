@@ -3,7 +3,7 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.$rootEl = opts.$rootEl;
     this.$header = opts.$header;
     this.$footer = opts.$footer;
-    this.$flash = opts.$flash
+    // this.flashes = "testing"
 
     this.collection = new Welp.Collections.Restaurants();
     this.collection.fetch();
@@ -46,7 +46,8 @@ Welp.Routers.Router = Backbone.Router.extend({
     var view = new Welp.Views.RestaurantsIndex({
       collection: this.collection
     })
-    this.swapView(view)
+    this.swapView(view);
+
   },
 
   restaurantNew: function() {
@@ -125,8 +126,6 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.$el);
     view.render();
   }
-
-
 
 
 

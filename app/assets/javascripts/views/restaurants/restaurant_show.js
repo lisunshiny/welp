@@ -29,15 +29,18 @@ Welp.Views.RestaurantShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var content = this.template({ restaurant: this.model, id: window.id });
+
+    var content = this.template({ restaurant: this.model, id: window.id, flashes: router.flashes });
     this.$el.html(content);
     this.attachSubviews();
 
     if (typeof this.model.get("name") != "undefined") {
       this.$el.find(".show-map-container").html(this.showMapView.$el);
       this.showMapView.initMap();
-    }
+      debugger;
+      router.flashes = "";
 
+    }
     return this;
   },
 

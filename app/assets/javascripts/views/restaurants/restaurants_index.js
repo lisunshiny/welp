@@ -25,7 +25,8 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
   template: JST["restaurants/index"],
 
   render: function() {
-    var content = this.template({ restaurants: this.collection });
+    debugger;
+    var content = this.template({ restaurants: this.collection, flashes: router.flashes });
     this.$el.html(content);
     this.attachSubviews();
 
@@ -33,6 +34,8 @@ Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
       this.$el.find(".index-map-container").html(this.indexMapView.$el);
       this.indexMapView.initMap();
       this._rendered = true;
+    } else {
+      router.flashes = "";
     }
 
     return this;

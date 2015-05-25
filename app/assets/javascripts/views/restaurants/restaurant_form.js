@@ -35,8 +35,9 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         that.collection.add(that.model);
+        router.flashes = "Your restaurant has been successfully created!"
         Backbone.history.navigate("restaurants/" + that.model.id, { trigger: true });
-      },
+        },
 
       error: function(model, response) {
         var errors = $.parseJSON(response.responseText).join(", ")
@@ -75,6 +76,8 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
     this.model.destroy({
       success: function() {
         console.log("deeted");
+        router.flashes = "your restaurant has been deleted"
+        Backbone.history.navigate("", { trigger: true});
       }
     });
   }

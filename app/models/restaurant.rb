@@ -22,7 +22,7 @@ class Restaurant < ActiveRecord::Base
   after_validation :geocode
 
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :review_images, through: :reviews, source: :review_images
 
   def image_url
