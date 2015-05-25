@@ -1,3 +1,6 @@
+.restaurant-form-h2 {
+  margin-top: 30px;
+}
 
 .restaurant-form-item {
   padding: 10px 0;
@@ -21,4 +24,16 @@
   length: 300px;
   margin-bottom: 10px;
   border: none;
+}
+.delete-button {
+  position: absolute;
+  top: 40px;
+  right: 20px ;
+  display: block;
+  background: #D31800;
+  box-shadow: 0 0 2px #000;
+  padding: 10px 15px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
 }

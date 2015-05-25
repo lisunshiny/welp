@@ -48,6 +48,12 @@
       <a class="write-review-button" href="#/restaurants/<%= restaurant.id %>/reviews/new">
         ★ Write a review
       </a>
+
+      <% if (restaurant.escape("user_id") == id) { %>
+        <a class="edit-restaurant-button" href="#/restaurants/<%= restaurant.id %>/edit">
+          Edit restaurant
+        </a>
+      <% } %>
     </section>
   </header>
 

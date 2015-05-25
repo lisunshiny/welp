@@ -1,5 +1,21 @@
-<h2>Add a restaurant</h2>
+
+<% if (restaurant.isNew()) { %>
+  <h2 class="restaurant-form-h2">Add a restaurant</h2>
+<% } else { %>
+  <h2 class="restaurant-form-h2">Edit <%= restaurant.escape("name") %></h2>
+<% } %>
+
+
 <section class="error-messages"></section>
+
+
+<% if (!restaurant.isNew()) { %>
+  <a class="delete-button" href="#">
+    Delete restaurant
+  </a>
+<% } %>
+
+
 
 <section class="restaurant-form-item clearfix">
 
@@ -15,11 +31,46 @@
 <section class="restaurant-form-item clearfix">
   <label for="restaurant_tag">Tag</label>
   <select id="restaurant_tag" name="restaurant[tag]"     class="restaurant-item-input">
-    <option value="0">Italian</option>
-    <option value="1">Chinese</option>
-    <option value="2">Mexican</option>
-    <option value="3">American</option>
-    <option value="4">Indian</option>
+    <option
+      value="0"
+      <% if(restaurant.escape("tag") === "italian") { %>
+        selected
+      <% } %>>
+
+      Italian
+    </option>
+    <option
+      value="1"
+      <% if(restaurant.escape("tag") === "chinese") { %>
+        selected
+      <% } %>>
+
+      Chinese
+    </option>
+    <option
+      value="2"
+      <% if(restaurant.escape("tag") === "mexican") { %>
+        selected
+      <% } %>>
+
+      Mexican
+    </option>
+    <option
+      value="3"
+      <% if(restaurant.escape("tag") === "american") { %>
+        selected
+      <% } %>>
+
+      American
+    </option>
+    <option
+      value="4"
+      <% if(restaurant.escape("tag") === "indian") { %>
+        selected
+      <% } %>>
+
+      Indian
+    </option>
   </select>
 </section>
 

@@ -26,6 +26,6 @@ Welp.Views.Header = Backbone.CompositeView.extend({
 
   goHome: function() {
     console.log("home")
-    window.router.navigate("restaurantsIndex", { trigger: true });
+    window.router.navigate("/", { trigger: true });
   }
 })

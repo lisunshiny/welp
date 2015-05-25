@@ -5,7 +5,8 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
 
   events: {
     "click .submit-restaurant": "submit",
-    "change #input-restaurant-image": "fileInputChange"
+    "change #input-restaurant-image": "fileInputChange",
+    "click .delete-button": "delete"
   },
 
   initialize: function (opts) {
@@ -16,11 +17,10 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
 
   render: function() {
 
-    if (!this.model.isNew() && this.model.get("user_id") !== window.id) {
+    if (!this.model.isNew() && this.model.get("user_id") != window.id) {
       this.$el.html("You can't edit this!");
       return this;
     }
-
     var content = this.template({ restaurant: this.model });
     this.$el.html(content);
 
@@ -69,5 +69,13 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
 
   _updatePreview: function(src) {
     this.$el.find(".preview-restaurant-pic").attr("src", src);
+  },
+
+  delete: function(event) {
+    this.model.destroy({
+      success: function() {
+        console.log("deeted");
+      }
+    });
   }
 })
