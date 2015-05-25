@@ -3,6 +3,7 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.$rootEl = opts.$rootEl;
     this.$header = opts.$header;
     this.$footer = opts.$footer;
+    this.$modal = opts.$modal;
 
     this.collection = new Welp.Collections.Restaurants();
     this.collection.fetch();
@@ -12,6 +13,7 @@ Welp.Routers.Router = Backbone.Router.extend({
     this.currentUser = new Welp.Models.CurrentUser();
     this.currentUser.fetch();
     this.renderHeader();
+    this.renderFooter();
   },
 
   routes: {

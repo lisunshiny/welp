@@ -1,0 +1,20 @@
+.modal {
+  display: none;
+  background: #CCCCC8;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+  z-index: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal-visible {
+  display: block;
+}
+
+.technologies {
+  list-style-type: circle;
+}

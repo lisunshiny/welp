@@ -8,7 +8,8 @@ window.Welp = {
     window.router = new Welp.Routers.Router({
       $rootEl: $(".main"),
       $header: $(".header"),
-      $footer: $(".footer")
+      $footer: $(".footer"),
+      $modal: $(".modal")
     });
     Backbone.history.start();
     console.log("yer in backbone")
