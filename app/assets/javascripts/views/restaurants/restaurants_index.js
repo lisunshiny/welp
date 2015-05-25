@@ -1,5 +1,5 @@
 Welp.Views.RestaurantsIndex = Backbone.CompositeView.extend({
-  className: "clearfix restaurant-index",
+  className: "clearfix restaurant-index main-container",
   initialize: function () {
     this.indexMapView = new Welp.Views.IndexMap({
       collection: this.collection
