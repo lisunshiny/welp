@@ -12,7 +12,5 @@ window.Welp = {
       $modal: $(".modal")
     });
     Backbone.history.start();
-    console.log("yer in backbone")
-    // stuff goes here
   }
 };

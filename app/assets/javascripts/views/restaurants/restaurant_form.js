@@ -49,7 +49,6 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
         var $container = that.$el.find(".error-messages")
 
         $container.html(errors);
-        console.log(response);
       }
     });
   },
@@ -80,7 +79,6 @@ Welp.Views.RestaurantForm = Backbone.View.extend({
   delete: function(event) {
     this.model.destroy({
       success: function() {
-        console.log("deeted");
         router.flashes = "Your restaurant has been successfully deleted."
         Backbone.history.navigate("", { trigger: true});
       }

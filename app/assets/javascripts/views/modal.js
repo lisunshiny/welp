@@ -13,7 +13,6 @@ Welp.Views.Modal = Backbone.View.extend({
   },
 
   closeModal: function() {
-    console.log("hi")
     router.$modal.attr("id", "");
   }
 })

@@ -16,7 +16,6 @@ Welp.Views.Footer = Backbone.CompositeView.extend({
   },
 
   openModal: function() {
-    console.log("open modal")
     router.$modal.html(new Welp.Views.Modal().render().$el);
     router.$modal.attr("id", "modal-visible");
   }
