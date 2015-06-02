@@ -45,7 +45,7 @@
   float: left;
   padding: 30px;
   color: #000;
-  position: relative; 
+  position: relative;
 }
 
 .search-form input {
@@ -115,4 +115,9 @@
   border-right: 1px solid #CCCCC8;
   border-bottom: 1px solid #CCCCC8;
 
+}
+
+
+.error-messages {
+  background-color: #ff7f7f;
 }
