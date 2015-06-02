@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag %>
+  <link rel="shortcut icon" type="image/png" href="/favicon.icos"/>
 
   <!-- google maps api -->
   <script
@@ -21,6 +21,8 @@
 
 </head>
 <body class="body">
+  <!-- <%= favicon_link_tag %> -->
+
   <div class="modal"></div>
   <%= render "layouts/header" %>
   <main class="main most-pages">
