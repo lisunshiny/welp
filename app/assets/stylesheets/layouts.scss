@@ -45,6 +45,7 @@
   float: left;
   padding: 30px;
   color: #000;
+  position: relative; 
 }
 
 .search-form input {
@@ -73,6 +74,8 @@
   border-radius: 5px;
   padding: 0 10px;
   box-shadow: 0 0 3px #000;
+  position: relative;
+  top: 2px;
 
 }
 
